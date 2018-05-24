@@ -198,6 +198,7 @@
 
                                 $itens = [];
                                 $total = 0.00;
+                                if(isset($venda['id'])){
                                 $resultado = mysqli_query($conexao, "select * from item_venda where venda_num_venda = '".$venda['id']."'");	
                                 while($item_prod = mysqli_fetch_assoc($resultado)) {
 
@@ -262,7 +263,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                <?php };?>
+                                <?php } };?>
 
 
 						</div><!--principal-->		
