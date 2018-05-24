@@ -84,6 +84,11 @@ CREATE TABLE `fornecedor` (
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `telefone` varchar(45) NOT NULL,
+  `complemento` varchar(45) NOT NULL,
+  `bairro` varchar(45) NOT NULL,
+  `cidade` varchar(45) NOT NULL, 
+  `estado` varchar(45) NOT NULL, 
+  `naturalidade` varchar(45) NOT NULL, 
   `compra_cnpj` int(11) NOT NULL
 )
 

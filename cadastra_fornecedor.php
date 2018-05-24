@@ -68,11 +68,29 @@
 											<td><input class="form-control mask-cnpj" type="text" name="cnpj" value="<?= isset($fornecedor['cnpj']) ? $fornecedor['cnpj'] : '' ?>"></td>
 										</tr>
 										<tr>
+											<td>Complemento:</td>
+											 <td><input class="form-control" type="text" name="complemento" value="<?= isset($fornecedor['complemento']) ? $fornecedor['complemento'] : '' ?>"></td>
+
+											<td>CNPJ:</td>
+											<td><input class="form-control" type="text" name="bairro" value="<?= isset($fornecedor['bairro']) ? $fornecedor['bairro'] : '' ?>"></td>
+										</tr>
+										<tr>
+											<td>Cidade:</td>
+											 <td><input class="form-control" type="text" name="cidade" value="<?= isset($fornecedor['complemento']) ? $fornecedor['complemento'] : '' ?>"></td>
+
+											<td>Estado:</td>
+											<td><input class="form-control" type="text" name="estado" value="<?= isset($fornecedor['estado']) ? $fornecedor['estado'] : '' ?>"></td>
+										</tr>
+										<tr>
 											<td>Email</td>
-											<td><input class="form-control" name="email" value="<?= isset($fornecedor['email']) ? $fornecedor['email'] : '' ?>"></input></td>
+											<td><input class="form-control" name="text" value="<?= isset($fornecedor['email']) ? $fornecedor['email'] : '' ?>"></input></td>
 
 											<td>Telefone</td>
 											<td><input class="form-control mask-cel" name="telefone" value="<?= isset($fornecedor['telefone']) ? $fornecedor['telefone'] : '' ?>"></input></td>
+										</tr>
+										<tr>
+											<td>Naturalidade</td>
+											<td><input class="form-control" name="text" value="<?= isset($fornecedor['naturalidade']) ? $fornecedor['naturalidade'] : '' ?>"></input></td>
 										</tr>
 										<tr>
 											<td colspan="2">
