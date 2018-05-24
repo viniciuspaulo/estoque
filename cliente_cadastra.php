@@ -76,8 +76,8 @@
 										</tr>
 
 										<tr>
-											<td>Cnpj:</td>
-											<td><input type="text" name="cnpj" id="cnpj" class="txt mask-cnpj" value="<?=$id ? $cliente['cnpj'] : ''?>" /></td>
+											<td>Cpf/Cnpj:</td>
+											<td><input type="text" name="cnpj" id="cnpj" class="txt mask-cnpj-cpf" value="<?=$id ? $cliente['cnpj'] : ''?>" /></td>
 
 											<td>Complemento:</td>
 											<td><input type="text" name="complemento" id="complemento" class="txt" value="<?=$id ? $cliente['complemento'] : ''?>" /></td>
