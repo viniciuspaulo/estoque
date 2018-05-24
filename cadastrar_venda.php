@@ -180,7 +180,7 @@
                                                         <td><?= $produto['preco'] ?></td>
                                                         <td><?= $produto['descricao'] ?></td>
                                                         <td>
-                                                            <button class="btn btn-primary" onclick="addProdutos(<?= $produto['id'] ?>,<?= $produto['preco'] ?>)">Adicionar</button>
+                                                            <button class="btn btn-primary" onclick="addProdutos(<?= $produto['id'] ?>,'<?= $produto['preco'] ?>')">Adicionar</button>
                                                         </td>
                                                     </tr>	
                                                     <?php
@@ -206,11 +206,11 @@
                                     $item = mysqli_fetch_assoc($item);
 
                                     $item['qtd'] = $item_prod['qtd'];
-                                    $item['total'] = ($item['preco'] * (int) $item['qtd']);
+                                    $item['total'] = (number_format((float)explode('R$:',$item['preco'])[1],2,',','.') * (int) $item['qtd']);
 
 
                                     for ($cont = 1; $cont <= $item['qtd']; $cont++){
-                                        $total += (int) $item['preco'];
+                                        $total += (int) number_format((float)explode('R$:',$item['preco'])[1],2,',','.');
                                     }
                                     
                                     array_push($itens, $item);
@@ -240,9 +240,9 @@
                                                     <td><?= $produto['id'] ?></td>
                                                     <td><?= $produto['nome'] ?></td>
                                                     <td><?= $produto['qtd'] ?></td>
-                                                    <td>R$ <?= $produto['preco'] ?></td>
+                                                    <td><?= $produto['preco'] ?></td>
                                                     <td><?= $produto['descricao'] ?></td>
-                                                    <td>R$ <?= number_format((float)$produto['total'], 2, '.', '') ?></td>
+                                                    <td>R$ <?= number_format((float) $produto['total'], 2, '.', '') ?></td>
                                                 </tr>	
                                                 <?php
                                                     endforeach
@@ -295,6 +295,7 @@
                             window.location.replace("./vendas_lista.php");
                         },
                         error : (e) =>{
+                            console.log(e);
                             alert("Problemas de conexao");
                         }
                     });
@@ -308,8 +309,7 @@
 
 
          addProdutos = (id,valor) =>{
-
-            valor =  parseFloat(valor);
+            valor =  parseFloat(valor.split('R$:')[1]);
             quantidade++;
             
             let existe = produtos.find(id_s => id_s.id === id);
@@ -327,8 +327,6 @@
                 produto.quantidade = 1;
                 produto.valor = valor;
                 produtos.push(produto);
-
-                total += valor;
             }
             
             montarTABLE();
@@ -343,6 +341,8 @@
 
         function montarTABLE(){
             $("#produtosAdicionado").html("");
+            
+            console.log(produtos);
 
             let trs = produtos.map( produto =>{
                 return `
