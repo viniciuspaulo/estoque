@@ -65,7 +65,7 @@
 													<td>Nome:</td>
 													<td><input type="text" name="nome" id="nome" class="txt" value="<?=$id ? $funcionario['nome'] : ''?>" /></td>
 
-													<td>CNPJ/CPF:</td>
+													<td>CPF:</td>
 													<td><input type="text" name="cpf" id="cpf" class="txt mask-cpf" value="<?= $id ? $funcionario['cpf'] : ''?>" /></td>
 												</tr>
 

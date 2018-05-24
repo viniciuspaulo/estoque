@@ -64,8 +64,8 @@
 											<td>Nome:</td>
 											 <td><input class="form-control" type="text" name="nome" value="<?= isset($fornecedor['nome']) ? $fornecedor['nome'] : '' ?>"></td>
 
-											<td>CNPJ:</td>
-											<td><input class="form-control mask-cnpj" type="text" name="cnpj" value="<?= isset($fornecedor['cnpj']) ? $fornecedor['cnpj'] : '' ?>"></td>
+											<td>CNPJ/CPF:</td>
+											<td><input class="form-control mask-cnpj-cpf" type="text" name="cnpj" value="<?= isset($fornecedor['cnpj']) ? $fornecedor['cnpj'] : '' ?>"></td>
 										</tr>
 										<tr>
 											<td>Complemento:</td>
