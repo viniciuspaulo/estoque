@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
-
+	<?php include 'script.php' ?>
 </head>
 <body>
 	<div id="header">
@@ -57,7 +57,7 @@
 												</tr>
 												<tr>
 													<td>Preço:</td>
-													<td><input type="number" name="preco" id="preco" class="txt" /></td>
+													<td><input type="number" name="preco" id="preco" class="txt mask-money" /></td>
 												</tr>
 												<tr>
 													<td>Descrição:</td>
