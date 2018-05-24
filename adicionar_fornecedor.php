@@ -36,7 +36,7 @@
 
         $sql = "INSERT INTO 
         fornecedor (`nome`,`cnpj`, `email`, `telefone`,`complemento`,`bairro`,`cidade`,`estado`,`naturalidade`, `compra_cnpj`) 
-        VALUES ('$nome', '$cnpj', '$email', '$telefone', '$complemento', '$bairro', '$cidade', '$estado', '$estado', 0); ";
+        VALUES ('$nome', '$cnpj', '$email', '$telefone', '$complemento', '$bairro', '$cidade', '$estado','$naturalidade', 0); ";
         $resultado_usuario = mysqli_query($conn, $sql);
 
     }

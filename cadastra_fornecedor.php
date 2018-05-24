@@ -71,7 +71,7 @@
 											<td>Complemento:</td>
 											 <td><input class="form-control" type="text" name="complemento" value="<?= isset($fornecedor['complemento']) ? $fornecedor['complemento'] : '' ?>"></td>
 
-											<td>CNPJ:</td>
+											<td>Bairro:</td>
 											<td><input class="form-control" type="text" name="bairro" value="<?= isset($fornecedor['bairro']) ? $fornecedor['bairro'] : '' ?>"></td>
 										</tr>
 										<tr>
@@ -83,14 +83,14 @@
 										</tr>
 										<tr>
 											<td>Email</td>
-											<td><input class="form-control" name="text" value="<?= isset($fornecedor['email']) ? $fornecedor['email'] : '' ?>"></input></td>
+											<td><input class="form-control" type="text" name="email" value="<?= isset($fornecedor['email']) ? $fornecedor['email'] : '' ?>"></input></td>
 
 											<td>Telefone</td>
 											<td><input class="form-control mask-cel" name="telefone" value="<?= isset($fornecedor['telefone']) ? $fornecedor['telefone'] : '' ?>"></input></td>
 										</tr>
 										<tr>
 											<td>Naturalidade</td>
-											<td><input class="form-control" name="text" value="<?= isset($fornecedor['naturalidade']) ? $fornecedor['naturalidade'] : '' ?>"></input></td>
+											<td><input class="form-control" type="text" name="naturalidade" value="<?= isset($fornecedor['naturalidade']) ? $fornecedor['naturalidade'] : '' ?>"></input></td>
 										</tr>
 										<tr>
 											<td colspan="2">
@@ -123,6 +123,7 @@
 						window.location.replace("./fornecedores_lista.php");
 					},
 					error : (e) =>{
+						console.log(e);
 						alert("Problemas de conexao");
 					}
 				});
