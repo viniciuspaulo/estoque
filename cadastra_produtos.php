@@ -66,7 +66,7 @@
 
 												<tr>
 													<td></td>
-													<td><input type="checkbox" name="usado" value="true">usado
+													<td><input type="checkbox" name="usado" value="true" />usado
 												</tr>																								
 												<tr>
 													<td>Categoria:</td>

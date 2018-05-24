@@ -154,7 +154,7 @@ CREATE TABLE `item_venda` (
 CREATE TABLE `produtos` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
-  `preco` double(10,2) DEFAULT NULL,
+  `preco` varchar(10) DEFAULT NULL,
   `descricao` text,
   `categoria_id` int(11) DEFAULT NULL,
   `usado` tinyint(1) DEFAULT '0'
