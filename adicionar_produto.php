@@ -19,7 +19,7 @@ if($sql){
 	echo "<center><h1> Cadastrado com sucesso </h1></center>";
 	header("Location: produtos-lista.php");
 }else{
-	header("Location: cliente_cadastra.php");
+	header("Location: produtos-lista.php");
 };
 
 mysqli_close($conexao);
