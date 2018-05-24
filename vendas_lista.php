@@ -2,7 +2,15 @@
 <head>
 	<title>Painel admin</title>
 	<link rel="stylesheet" type="text/css" href="css/home.css"/>
-
+	<style>
+		input[type='date']{
+			border: none;
+			width: 100%;
+			text-align: center;
+			font-weight: bolder;
+			font-size: 1.1em;
+		}
+	</style>
 </head>
 <body>
 	<div id="header">
@@ -18,27 +26,19 @@
 								}
 							?></span></a></li>
 			<li><a href="sair.php">Sair</a></li>
-		</div><!--adm-->		
-		<nav>
-			<ul>
-				<li><a href="cadastra_funcionario.php">Funcionários</a></li>
-				<li><a href="cadastra_cliente.php">Cliente</a></li>
-				<li><a href="#">Fornecedor</a></li>
-				<li><a href="">Produtos</a></li>
-				<li><a href="#">Compra</a></li>
-				<li><a href="cadastra_produtos.php">Venda</a></li>
-			</ul>
-		</nav>	
-	</div><!-- fim header-->
-	<div id="container">
-		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="cadastra_produtos.php">Cadastrar</a></li>
-				<li><a href="#">Fornecedor</a></li>
+		</div>
 
-			</ul><!--sidebar-nav-->
-			
-		</div><!-- fim sidebar-->
+		<nav>
+			<?php include 'menu.php' ?>
+		</nav>	
+		
+	</div>
+	<div id="container">
+
+		<div class="sidebar">
+			<?php include 'menu-lateral.php' ?>
+		</div>
+
 		<div class="content">
 			<h1>Sigemac</h1>
 			<p>Sistema de Gestão de Material de Construção</p>
@@ -54,16 +54,21 @@
 									$vendas = [];
 									$resultado = mysqli_query($conexao, "select * from venda");	
 									while($venda = mysqli_fetch_assoc($resultado)) {
+
+										$venda['cliente'] = mysqli_fetch_assoc(mysqli_query($conexao, "select * from clientes where cliente_id = 1"));	
 										array_push($vendas, $venda);
 									}
-									//var_dump($forncedores);
+									$vendas = array_reverse($vendas);
 								?>
 								<table class="table">
 									<!--Table head-->
 									<thead>
 										<tr>
                                             <th>Cod</th>
-                                            <th></th>
+                                            <th>Cliente</th>
+											<th>Data Pedido</th>
+											<th>Data Entrega</th>
+											<th></th>
 										</tr>
 									</thead>
 									<!--Table head-->
@@ -73,6 +78,9 @@
 										?>
 										<tr>
 											<td><?= $venda['id'] ?></td>
+											<td><?= $venda['cliente']['nome'] ?></td>
+											<td><input type="date" value="<?= $venda['data'] ?>" disabled></td>
+											<td><input type="date" value="<?= $venda['end_entrega'] ?>" disabled></td>
 											<td><a class="btn btn-primary"  href="cadastrar_venda.php?id=<?=$venda['id']?>">Ver</a></td>
 										</tr>	
 										<?php

@@ -47,27 +47,15 @@
 			<li><a href="sair.php">Sair</a></li>
 		</div><!--adm-->		
 		<nav>
-			<ul>
-				<li><a href="cadastra_produtos.php">Cadastro</a></li>
-				<li><a href="produtos-lista.php">Produtos</a></li>
-				<li><a href="#">Compra</a></li>
-				<li><a href="#">Venda</a></li>
-				<li><a href="#">Cliente</a></li>
-				<li><a href="#">Funcionário</a></li>
-			</ul>
-		</nav>	
+			<?php include 'menu.php' ?>
+		</nav>		
 	</div><!-- fim header-->
 	<div id="container">
-		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="cadastra_funcionario.php">Funcionários</a></li>
-				<li><a href="cadastra_produtos.php">Produtos</a></li>
-				<li><a href="cadastra_fornecedor.php">Fornecedor</a></li>
-				<li><a href="cadastra_cliente.php">Cliente</a></li>
 
-			</ul><!--sidebar-nav-->
-			
-		</div><!-- fim sidebar-->
+		<div class="sidebar">
+            <?php include 'menu-lateral.php' ?>
+		</div>
+
 		<div class="content">
 			<h1>Sigemac</h1>
 			<p>Sistema de Gestão de Material de Construção</p>
@@ -129,9 +117,9 @@
                                         </tr>
                                         <tr>
                                             <td>Cliente :</td>
-											<td><select id="id_client" name="id_client">
+											<td><select id="cliente_id" name="cliente_id">
                                                 <?php foreach ($clientes as $cliente) : ?>
-                                                    <option value="<?=$cliente['id']?>">
+                                                    <option value="<?=$cliente['cliente_id']?>">
                                                         <?=$cliente['nome']?>
                                                     </option> 
                                                 <?php endforeach ?>
@@ -210,12 +198,12 @@
 
                                 $itens = [];
                                 $total = 0.00;
-                                $resultado = mysqli_query($conexao, "select * from item_venda");	
+                                $resultado = mysqli_query($conexao, "select * from item_venda where venda_num_venda = '".$venda['id']."'");	
                                 while($item_prod = mysqli_fetch_assoc($resultado)) {
 
-                                    $item = mysqli_query($conexao, "select * from produtos where id = '".$item_prod['cod_produto']."' ");
+                                    $item = mysqli_query($conexao, "select * from produtos where id = '".$item_prod['cod_produto']."'");
                                     $item = mysqli_fetch_assoc($item);
-                                    
+
                                     $item['qtd'] = $item_prod['qtd'];
                                     $item['total'] = ($item['preco'] * (int) $item['qtd']);
 
@@ -223,15 +211,16 @@
                                     for ($cont = 1; $cont <= $item['qtd']; $cont++){
                                         $total += (int) $item['preco'];
                                     }
-
+                                    
                                     array_push($itens, $item);
                                 }
+
+
                                 if(isset($_GET['id']) ) { ?>
                                     <div class="row">
                                         <div class="col-6">
                                             <table class="table">
                                                 <!--Table head-->
-                                                <h4>PRODUTOS | TOTAL : R$ <?= number_format((float)$total, 2, '.', '') ?></h4>
                                                 <thead>
                                                     <tr>
                                                         <th>Cod</th>
@@ -257,6 +246,19 @@
                                                 <?php
                                                     endforeach
                                                 ?>
+
+                                                <tfoot>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                            <h4>TOTAL : R$ <?= number_format((float)$total, 2, '.', '') ?></h4>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
                                             </table>
                                         </div>
                                     </div>
@@ -282,7 +284,7 @@
                             data : $("#data").val(),
                             matricula : $("#matricula").val(),
                             end_entrega : $("#end_entrega").val(),
-                            id_client : $("#id_client").val(),
+                            cliente_id : $("#cliente_id").val(),
                             valor : total,
                             quantidade : quantidade,
                             produtos : produtos
@@ -292,7 +294,6 @@
                             window.location.replace("./vendas_lista.php");
                         },
                         error : (e) =>{
-                            console.log(e);
                             alert("Problemas de conexao");
                         }
                     });

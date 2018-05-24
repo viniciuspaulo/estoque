@@ -19,26 +19,18 @@
 							?></span></a></li>
 			<li><a href="sair.php">Sair</a></li>
 		</div><!--adm-->		
+		
 		<nav>
-			<ul>
-				<li><a href="cadastra_funcionario.php">Funcionários</a></li>
-				<li><a href="cadastra_cliente.php">Cliente</a></li>
-				<li><a href="#">Fornecedor</a></li>
-				<li><a href="">Produtos</a></li>
-				<li><a href="#">Compra</a></li>
-				<li><a href="cadastra_produtos.php">Venda</a></li>
-			</ul>
+			<?php include 'menu.php' ?>
 		</nav>	
-	</div><!-- fim header-->
-	<div id="container">
-		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="cadastra_produtos.php">Cadastrar</a></li>
-				<li><a href="#">Fornecedor</a></li>
 
-			</ul><!--sidebar-nav-->
-			
-		</div><!-- fim sidebar-->
+	</div>
+	<div id="container">
+		
+		<div class="sidebar">
+			<?php include 'menu-lateral.php' ?>
+		</div>
+
 		<div class="content">
 			<h1>Sigemac</h1>
 			<p>Sistema de Gestão de Material de Construção</p>
@@ -48,7 +40,7 @@
 				<div class="box-painel">
 					<div class="container"><!--centralizar-->
 						<div class="principal">
-							<h1>Lista de produtos</h1>
+							<h1>Lista de produtos - <a href="cadastra_produtos.php">NOVO</a></h1>
 
 							<?php include("conecta.php");
 							      include("banco-produto.php"); ?>
@@ -76,6 +68,7 @@
 
 									<?php
 										$produtos = listaProdutos($conexao);
+										$produtos = array_reverse($produtos);
 										foreach ($produtos as $produto) : 
 									?>
 									<tr>

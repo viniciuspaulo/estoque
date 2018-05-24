@@ -18,31 +18,19 @@
 								}
 							?></span></a></li>
 			<li><a href="sair.php">Sair</a></li>
-		</div><!--adm-->		
+		</div>	
+		
 		<nav>
-			<ul>
-				<li><a href="produtos-lista.php">Produtos</a></li>
-				<li><a href="produtos.php">Cadastra P</a></li>
-				<li><a href="#">Estoque</a></li>
-				<li><a href="#">Fornecedor</a></li>
-				<li><a href="#">Cliente</a></li>
-				<li><a href="#">Funcionário</a></li>
-			</ul>
+			<?php include 'menu.php' ?>
 		</nav>	
-	</div><!-- fim header-->
+
+	</div>
 	<div id="container">
+		
 		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="">Dasboard</a></li>
-				<li><a href="">Endereço</a></li>
-				<li><a href="">Retornos</a></li>
-				<li><a href="">Entradas</a></li>
-				<li><a href="">Reclamações</a></li>
-				<li><a href="">Gerentes</a></li>
-				<li><a href="">Auxiliares</a></li>
-			</ul><!--sidebar-nav-->
-			
-		</div><!-- fim sidebar-->
+			<?php include 'menu-lateral.php' ?>
+		</div>
+
 		<div class="content">
 			<h1>Sigemac</h1>
 			<p>Sistema de Gestão de Material de Construção</p>

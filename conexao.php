@@ -1,36 +1,24 @@
 <?php
 
-	//mysql_connect('localhost','root','') or die(mysql_error());
-	//mysql_select_db('tcc2') or die(mysql_error());
+	session_start();
 
-
-
+	require "conecta.php";
+	
 	if(isset($_POST['email']) && isset($_POST['senha'])){
 		$email = $_POST['email'];
 		$senha = $_POST['senha'];
 
-		//$get = mysql_query("SELECT * FROM funcionario WHERE email = '$email' AND senha = '$senha'");
-		//$num = mysql_num_rows($get);
+		$usuario = mysqli_query($conexao, "select * from usuario where email =  '$email' ");
+		$usuario = mysqli_fetch_assoc($usuario);
 
-		//if($num == 1){
-			//while($percorer = mysql_fetch_array($get)){
-				$adm = $percorer['adm'];
-				$nome  = $percorer['nome'];
+		if($usuario && ($usuario['Password'] == $senha)){
+			
+			$_SESSION['usuario_email'] = $email;
+			$_SESSION['usuario_nome'] = $usuario['Username'] ;
 
-				session_start();
-
-				if($adm == 1){
-					$_SESSION['adm'] = $nome;
-				}else{
-					$_SESSION['nor'] = $nome;
-				}
-
-				header("Location: logado.php");
-			//}
-		// }else{
-		// 		header("Location: index.php");
-
-		// }
-
+			header("Location: vendas_lista.php");
+		}else{
+			header("Location: index.php?login=false");
+		}
 	}
 ?>

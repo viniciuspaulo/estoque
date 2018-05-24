@@ -11,33 +11,19 @@
 		<div class="adm">
 			<li><a href="#"><span>Adm</span></a></li>
 			<li><a href="#">Sair</a></li>
-		</div><!--adm-->		
+		</div><!--adm-->	
+		
 		<nav>
-			<ul>
-				<li><a href="produtos-lista.php">Produtos</a></li>
-				<li><a href="#">Materiais</a></li>
-				<li><a href="#">Estoque</a></li>
-				<li><a href="#">Fornecedor</a></li>
-				<li><a href="#">Cliente</a></li>
-				<li><a href="#">Funcionário</a></li>
-				<li><a href="#">Button</a></li>
-				<li><a href="#">Button</a></li>
-			</ul>
-		</nav>	
+			<?php include 'menu.php' ?>
+		</nav>
+
 	</div><!-- fim header-->
 	<div id="container">
+		
 		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="">Dasboard</a></li>
-				<li><a href="">Endereço</a></li>
-				<li><a href="">Retornos</a></li>
-				<li><a href="">Entradas</a></li>
-				<li><a href="">Reclamações</a></li>
-				<li><a href="">Gerentes</a></li>
-				<li><a href="">Auxiliares</a></li>
-			</ul><!--sidebar-nav-->
-			
-		</div><!-- fim sidebar-->
+			<?php include 'menu-lateral.php' ?>
+		</div>
+
 		<div class="content">
 			<h1>Dashboard</h1>
 			<p>Sistema de Gestão de Material de Construção</p>

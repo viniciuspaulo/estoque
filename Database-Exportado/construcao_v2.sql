@@ -7,11 +7,16 @@
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 5.6.34
 
+
+CREATE DATABASE tcc2
+
+USE tcc2
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,21 +38,6 @@ CREATE TABLE `categorias` (
   `nome` varchar(255) DEFAULT NULL
 )
 
---
--- Extraindo dados da tabela `categorias`
---
-
-INSERT INTO `categorias` (`id`, `nome`) VALUES
-(1, 'blocos'),
-(2, 'tijolos'),
-(3, 'calhas'),
-(4, 'rufos'),
-(5, 'tintas'),
-(6, 'cimento'),
-(7, 'lampada'),
-(8, 'chuveiro'),
-(9, 'construcao');
-
 -- --------------------------------------------------------
 
 --
@@ -55,12 +45,17 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE `clientes` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `cliente_id` int PRIMARY KEY AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `idade` int(4) NOT NULL,
-  `sexo` varchar(2) NOT NULL,
-  `estado` varchar(100) NOT NULL
+  `telefone` varchar(20) NOT NULL,
+  `cep` varchar(100) NOT NULL,
+  `endereco` varchar(100) NOT NULL,
+  `numero` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `estado` varchar(100) NOT NULL,
+  `complemento` varchar(100) NOT NULL,
+  `cnpj` varchar(100) NOT NULL
 )
 
 -- --------------------------------------------------------
@@ -101,28 +96,19 @@ CREATE TABLE `fornecedor` (
 CREATE TABLE `funcionario` (
   `funcionario_id` int PRIMARY KEY AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `adm` int(1) NOT NULL,
-  `telefone` varchar(10) NOT NULL,
-  `cep` varchar(10) NOT NULL,
-  `rua` varchar(100) NOT NULL,
-  `bairro` varchar(50) NOT NULL,
-  `cidade` varchar(50) NOT NULL,
-  `uf` varchar(2) NOT NULL
+  `cpf` varchar(100) NOT NULL,
+  `cep` varchar(100) NOT NULL,
+  `endereco` varchar(100) NOT NULL,
+  `numero` varchar(100) NOT NULL,
+  `complemento` varchar(100) NOT NULL,
+  `bairro` varchar(100) NOT NULL,
+  `estado` varchar(100) NOT NULL,
+  `cargo` varchar(100) NOT NULL,
+  `dataadmissao` varchar(100) NOT NULL,
+  `datadesligamento` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL
 )
 
---
--- Extraindo dados da tabela `funcionario`
---
-
-INSERT INTO `funcionario` (`funcionario_id`, `nome`, `email`, `senha`, `adm`, `telefone`, `cep`, `rua`, `bairro`, `cidade`, `uf`) VALUES
-(5, '', 'joaquim@tcc.com', '12345', 0, '', '', '', '', '', ''),
-(6, 'joaquim', 'joaquimgarcia@tcc.com', '12345', 1, '', '', '', '', '', ''),
-(7, 'rinaldo', 'rinaldo@tcc.com', '1234', 0, '', '', '', '', '', ''),
-(16, 'Roberto Antonio da Silva', 'roberto@tcc.com', '2233', 1, '982713463', '22260-006', 'Rua SÃ£o Clemente', 'Botafogo', 'Rio de Janeiro', 'RJ'),
-(17, 'Marito Buchinho', 'roberto@tcc.com', '12345', 1, '982713463', '22260-006', 'Rua SÃ£o Clemente', 'Botafogo', 'Rio de Janeiro', 'RJ'),
-(18, 'Leandro Roberto', 'leandro@hotmail.com', '12345', 1, '8686868670', '22260-006', '...cinelandia', '...centro', 'Rio de Janeiro', 'RJ');
 
 -- --------------------------------------------------------
 
@@ -169,21 +155,6 @@ CREATE TABLE `produtos` (
   `usado` tinyint(1) DEFAULT '0'
 )
 
---
--- Extraindo dados da tabela `produtos`
---
-
-INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`) VALUES
-(28, 'dsgsdg', 44.00, 'dgddgg', NULL, 0),
-(29, 'Espatula', 5.00, 'espatula para pintura', NULL, 0),
-(31, 'Luvas', 5.00, 'Luvas para lavagem', 4, 0),
-(32, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
-(33, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
-(34, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
-(35, 'Tijolo', 10.00, 'tijolo', 9, 0),
-(36, 'cerrote', 9.00, 'cerro de madeira', 3, 1),
-(37, 'ferro fundido', 21.00, 'ferro velho', 3, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -198,13 +169,6 @@ CREATE TABLE `usuario` (
   `Dataregistro` varchar(45) NOT NULL,
   `Permissao` varchar(45) NOT NULL
 )
-
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`idUser`, `Username`, `Email`, `Password`, `Dataregistro`, `Permissao`) VALUES
-(1, 'admin', 'admin@admin.com', 'admin', '', '1');
 
 -- --------------------------------------------------------
 
@@ -224,15 +188,6 @@ CREATE TABLE `usuarios` (
   `adm` int(10) NOT NULL,
   `id` int PRIMARY KEY AUTO_INCREMENT
 )
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`email`, `senha`, `nome`, `sobrenome`, `telefone`, `cpf`, `pais`, `estado`, `adm`, `id`) VALUES
-('joaquim@tcc.com', '1234', 'joaquim', '', 0, 0, '', '', 1, 1),
-('rinaldo@tcc.com', '12345', 'rinaldo', '', 0, 0, '', '', 0, 2),
-('roberto@tcc.com', '666777', 'Roberto Antonio', 'Silva', 982713463, 8990076, 'usa', 'RJ', 0, 31);
 
 -- --------------------------------------------------------
 
@@ -268,3 +223,58 @@ CREATE TABLE `venda` (
 )
 
 
+
+
+--
+-- Extraindo dados da tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nome`) VALUES
+(1, 'blocos'),
+(2, 'tijolos'),
+(3, 'calhas'),
+(4, 'rufos'),
+(5, 'tintas'),
+(6, 'cimento'),
+(7, 'lampada'),
+(8, 'chuveiro'),
+(9, 'construcao');
+
+
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`) VALUES
+(28, 'dsgsdg', 44.00, 'dgddgg', NULL, 0),
+(29, 'Espatula', 5.00, 'espatula para pintura', NULL, 0),
+(31, 'Luvas', 5.00, 'Luvas para lavagem', 4, 0),
+(32, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
+(33, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
+(34, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
+(35, 'Tijolo', 10.00, 'tijolo', 9, 0),
+(36, 'cerrote', 9.00, 'cerro de madeira', 3, 1),
+(37, 'ferro fundido', 21.00, 'ferro velho', 3, 0);
+
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUser`, `Username`, `Email`, `Password`, `Dataregistro`, `Permissao`) VALUES
+(1, 'admin', 'admin@admin.com', 'admin', '', '1');
+
+
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`email`, `senha`, `nome`, `sobrenome`, `telefone`, `cpf`, `pais`, `estado`, `adm`, `id`) VALUES
+('joaquim@tcc.com', '1234', 'joaquim', '', 0, 0, '', '', 1, 1),
+('rinaldo@tcc.com', '12345', 'rinaldo', '', 0, 0, '', '', 0, 2),
+('roberto@tcc.com', '666777', 'Roberto Antonio', 'Silva', 982713463, 8990076, 'usa', 'RJ', 0, 31);
+
+
+commit

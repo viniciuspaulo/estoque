@@ -2,7 +2,13 @@
 <head>
 	<title>Painel admin</title>
 	<link rel="stylesheet" type="text/css" href="css/home.css"/>
-
+	<script src="js/jquery.js"></script>
+	<style>
+		.pesquisar{
+			padding : 10px;
+			max-width : 400px;
+		}
+	</style>
 </head>
 <body>
 	<div id="header">
@@ -20,28 +26,15 @@
 			<li><a href="sair.php">Sair</a></li>
 		</div><!--adm-->		
 		<nav>
-			<ul>
-				<li><a href="cadastra_funcionario.php">Funcionários</a></li>
-				<li><a href="cadastra_cliente.php">Cliente</a></li>
-				<li><a href="cadastra_produtos.php">Fornecedor</a></li>
-				<li><a href="produtos-lista.php">Produtos</a></li>
-				<li><a href="cadastra_produtos.php">Compra</a></li>
-				<li><a href="cadastra_produtos.php">Venda</a></li>
-			</ul>
+			<?php include 'menu.php' ?>
 		</nav>	
 	</div><!-- fim header-->
 	<div id="container">
+		
 		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="cadastra_funcionario.php"><?php
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Cadastro';
-								}
-							?></a></li>
-				<li><a href="consulta_funcionario.php">Consulta</a></li>
-			</ul><!--sidebar-nav-->			
-		</div><!-- fim sidebar-->
+			<?php include 'menu-lateral.php' ?>	
+		</div>
+
 		<div class="content">
 			<h1>Sigemac</h1>
 			<p>Sistema de Gestão de Material de Construção</p>
@@ -51,44 +44,45 @@
 				<div class="box-painel">
 					<div class="container"><!--centralizar-->
 						<div class="principal">
-							<h1>Consulta funcionário</h1>
+							<h1>Consulta Clientes - <a href="cliente_cadastra.php">NOVO</a></h1>
 
-							<?php include("conecta.php");
-							      include("banco-produto.php"); ?>
+							<br>
+							<div class="form-group pesquisar">
+								<input type="text" id="pesquisar" class="form-control" placeholder="Pesquisar funcionario pelo o nome">
+							</div>
+							<br>
 
-							    <?php
-							    	if(array_key_exists("removido", $_GET) && $_GET["removido"]==true) {
-							    ?>
-							    		<p class="alert-success">produto removido com sucesso!</p>
-							    <?php
-							    	}
-							    ?>
+							<?php include "cliente_banco.php"; 
+								$clientes = listaCliente($conexao);
+							?>
+							<script type="text/javascript">
+								var clientes = <?php echo json_encode($clientes); ?>;
+							</script>
 								<table class="table">
 							    <!--Table head-->
 							    <thead>
 							        <tr>
 							            <th>Nome</th>
-							            <th>Função</th>
 							            <th>E-mail</th>
-							            <th>Telefone</th>
 							            <th>Alterar</th>
 							            <th>Apagar</th>
 							        </tr>
 							    </thead>
 							    <!--Table head-->
 
-									<!--<?php
-										$funcionarios = listafuncionario($conexao);
-										foreach ($funcionarios as $funcionario) : 
-									?>-->
+									<?php
+										
+										foreach ($clientes as $cliente) : 
+									?>
 									<tr>
-										<td><?= $funcionario['nome'] ?></td>
-										<td><a class="btn btn-primary"  href="produto-altera.php?id=<?=$produto['id']?>">alterar</a></td>
+										<td><?= $cliente['nome'] ?></td>
+										<td><?= $cliente['email'] ?></td>
+										<td><a class="btn btn-primary"  href="./cliente_cadastra.php?id=<?=$cliente['cliente_id']?>">alterar</a></td>
 
 
 										<td>
-											<form action="remove-produto.php" method="post">
-												<input type="hidden" name="id" value="<?=$produto['id']?>">
+											<form action="cliente_remove.php" method="post">
+												<input type="hidden" name="cliente_id" value="<?=$cliente['cliente_id']?>">
 												<button  class="btn btn-danger">remover</button>
 											</form>	
 										</td>	
@@ -104,5 +98,21 @@
 			
 		</div><!--content-->
 	</div><!--container-->
+	<script type="text/javascript">
+	
+		$('#pesquisar').blur(() =>{
+			let nome = $("#pesquisar").val();
+			let cliente = clientes.find(cliente => cliente.nome.toLowerCase().indexOf(nome.toLowerCase()) > -1);
+
+			if(cliente){
+				document.location = `cliente_cadastra.php?id=${cliente.cliente_id}`;
+			}else{
+				if(confirm("Deseja cadastrar um novo funcionario ?")){
+					document.location = `cliente_cadastra.php`;
+				}
+			}
+		})
+
+	</script>
 </body>
 </html>

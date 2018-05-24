@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +19,9 @@
                         <input type="password" name="senha" placeholder="..."><br>
                         <input type="submit"  value="Entrar" />
                     </form>
+                    <?php if(isset($_GET['login'])){ ?>
+                        <h2>Usuário ou senha incorretos</h2>
+                    <?php } ?>
                 </div>
             </div>    
     </div><!-- fim container-->

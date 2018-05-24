@@ -36,29 +36,15 @@
 			<li><a href="sair.php">Sair</a></li>
 		</div><!--adm-->		
 		<nav>
-			<ul>
-				<li><a href="cadastra_funcionario.php">Funcionários</a></li>
-				<li><a href="cadastra_cliente.php">Cliente</a></li>
-				<li><a href="cadastra_produtos.php">Fornecedor</a></li>
-				<li><a href="produtos-lista.php">Produtos</a></li>
-				<li><a href="cadastra_produtos.php">Compra</a></li>
-				<li><a href="cadastra_produtos.php">Venda</a></li>
-			</ul>
+			<?php include 'menu.php' ?>
 		</nav>	
 	</div><!-- fim header-->
 	<div id="container">
+		
 		<div class="sidebar">
-			<ul id="sidebar-nav">
-				<li><a href="#"><?php
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Cadastro';
-								}
-							?></a></li>
-				<li><a href="#">Consulta</a></li>
-			</ul><!--sidebar-nav-->
-			
-		</div><!-- fim sidebar-->
+			<?php include 'menu-lateral.php' ?>
+		</div>
+
 		<div class="content">
 			<h1>Sigemac</h1>
 			<p>Sistema de Gestão de Material de Construção</p>
