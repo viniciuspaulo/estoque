@@ -119,7 +119,7 @@
 					url: 'adicionar_fornecedor.php',
 					data: $('form').serialize(),
 					success: (e) => {
-						alert("fornecedor cadastrado com sucesso");
+						//alert("fornecedor  com sucesso");
 						window.location.replace("./fornecedores_lista.php");
 					},
 					error : (e) =>{
