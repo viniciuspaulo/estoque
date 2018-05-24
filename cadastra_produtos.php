@@ -57,7 +57,7 @@
 												</tr>
 												<tr>
 													<td>Preço:</td>
-													<td><input type="number" name="preco" id="preco" class="txt mask-money" /></td>
+													<td><input type="text" name="preco" id="preco" class="txt mask-money" /></td>
 												</tr>
 												<tr>
 													<td>Descrição:</td>
