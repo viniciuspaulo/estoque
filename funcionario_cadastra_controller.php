@@ -3,6 +3,7 @@ include 'conecta.php';
 
 $nome=$_POST['nome'];
 $cpf=$_POST['cpf'];
+$matricula=$_POST['matricula'];
 $cep=$_POST['cep'];
 $endereco=$_POST['endereco'];
 $numero=$_POST['numero'];
@@ -25,8 +26,8 @@ if(empty($nome)){
 }
 
 
-$sql = mysqli_query($conexao, "INSERT INTO funcionario(nome, cpf, cep, endereco, numero, complemento, bairro, estado, cargo, dataadmissao, datadesligamento, email) 
-VALUES('$nome','$cpf', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cargo', '$dataadmissao' ,'$datadesligamento','$email')");
+$sql = mysqli_query($conexao, "INSERT INTO funcionario(nome, cpf, matricula ,cep, endereco, numero, complemento, bairro, estado, cargo, dataadmissao, datadesligamento, email) 
+VALUES('$nome','$cpf', '$matricula', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cargo', '$dataadmissao' ,'$datadesligamento','$email')");
 
 if($sql){
 	echo "<center><h1> Cadastrado com sucesso </h1></center>";

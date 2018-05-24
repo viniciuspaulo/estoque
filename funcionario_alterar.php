@@ -3,6 +3,7 @@ include 'conecta.php';
 
 $funcionario_id=$_POST['funcionario_id'];
 $nome=$_POST['nome'];
+$matricula=$_POST['matricula'];
 $cpf=$_POST['cpf'];
 $cep=$_POST['cep'];
 $endereco=$_POST['endereco'];
@@ -30,6 +31,7 @@ $sql = mysqli_query($conexao, "UPDATE funcionario
 	SET nome = '$nome',
 	cpf = '$cpf',
 	cep = '$cep',
+	matricula = '$matricula',
 	endereco = '$endereco',
 	numero = '$numero',
 	complemento = '$complemento',

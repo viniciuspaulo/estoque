@@ -102,6 +102,7 @@ CREATE TABLE `funcionario` (
   `funcionario_id` int PRIMARY KEY AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `cpf` varchar(100) NOT NULL,
+  `matricula` varchar(100) NOT NULL,
   `cep` varchar(100) NOT NULL,
   `endereco` varchar(100) NOT NULL,
   `numero` varchar(100) NOT NULL,

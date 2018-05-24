@@ -36,7 +36,9 @@
 		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
 		<div class="adm">
 			<li><a href="#"><span><?php
-								session_start();
+                                session_start();
+                                
+                                setlocale(LC_MONETARY,"en_US");
 								
 								if(isset($_SESSION['adm'])){
 									echo 'Adm: '.$_SESSION['adm'].'';
@@ -205,12 +207,14 @@
                                     $item = mysqli_query($conexao, "select * from produtos where id = '".$item_prod['cod_produto']."'");
                                     $item = mysqli_fetch_assoc($item);
 
+
+            
                                     $item['qtd'] = $item_prod['qtd'];
-                                    $item['total'] = (number_format((float)explode('R$:',$item['preco'])[1],2,',','.') * (int) $item['qtd']);
+                                    $item['total'] = ( (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100 * (int) $item['qtd']);
 
 
                                     for ($cont = 1; $cont <= $item['qtd']; $cont++){
-                                        $total += (int) number_format((float)explode('R$:',$item['preco'])[1],2,',','.');
+                                        $total += (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100;
                                     }
                                     
                                     array_push($itens, $item);

@@ -65,7 +65,7 @@
 													<td>Nome:</td>
 													<td><input type="text" name="nome" id="nome" class="txt" value="<?=$id ? $funcionario['nome'] : ''?>" /></td>
 
-													<td>CPF:</td>
+													<td>CNPJ/CPF:</td>
 													<td><input type="text" name="cpf" id="cpf" class="txt mask-cpf" value="<?= $id ? $funcionario['cpf'] : ''?>" /></td>
 												</tr>
 
@@ -107,6 +107,11 @@
 
 													<td>Email :</td>
 													<td><input type="text" name="email" id="email" class="txt" value="<?= $id ? $funcionario['email'] : ''?>" /></td>
+												</tr>
+
+												<tr>
+													<td>Matricula :</td>
+													<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($funcionario['matricula']) ? $funcionario['matricula'] : '' ?>"></td>
 												</tr>
 										
 												<tr>
