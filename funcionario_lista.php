@@ -12,19 +12,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
-		<div class="adm">
-			<li><a href="#"><span><?php
-								session_start();
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Adm: '.$_SESSION['adm'].'';
-								}else if(isset($_SESSION['nor'])){
-									echo 'User: '.$_SESSION['nor'].'';
-								}
-							?></span></a></li>
-			<li><a href="sair.php">Sair</a></li>
-		</div><!--adm-->		
+		<?php include 'logo.php' ?>	
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>	
@@ -44,7 +32,7 @@
 				<div class="box-painel">
 					<div class="container"><!--centralizar-->
 						<div class="principal">
-							<h1>Consulta funcionário - <a href="funcionario_cadastra.php">NOVO</a></h1>
+							<h1>Consulta usuários - <a href="funcionario_cadastra.php">NOVO</a></h1>
 
 							<br>
 							<div class="form-group pesquisar">

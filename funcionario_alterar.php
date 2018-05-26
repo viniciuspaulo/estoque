@@ -15,6 +15,8 @@ $cargo=$_POST['cargo'];
 $dataadmissao=$_POST['dataadmissao'];
 $datadesligamento=$_POST['datadesligamento'];
 $email=$_POST['email'];
+$senha=$_POST['senha'];
+$perfil=$_POST['perfil'];
 
 
 
@@ -40,7 +42,9 @@ $sql = mysqli_query($conexao, "UPDATE funcionario
 	cargo = '$cargo',
 	dataadmissao = '$dataadmissao',
 	datadesligamento = '$datadesligamento',
-	email = '$email' 
+	email = '$email',
+	senha = '$senha', 
+	perfil = '$perfil' 
 	WHERE funcionario_id = '$funcionario_id'");
 
 if($sql){

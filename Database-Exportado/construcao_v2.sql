@@ -89,7 +89,8 @@ CREATE TABLE `fornecedor` (
   `cidade` varchar(45) NOT NULL, 
   `estado` varchar(45) NOT NULL, 
   `naturalidade` varchar(45) NOT NULL, 
-  `compra_cnpj` int(11) NOT NULL
+  `compra_cnpj` int(11) NOT NULL,
+  `produto` varchar(255) NOT NULL
 )
 
 -- --------------------------------------------------------
@@ -112,7 +113,9 @@ CREATE TABLE `funcionario` (
   `cargo` varchar(100) NOT NULL,
   `dataadmissao` varchar(100) NOT NULL,
   `datadesligamento` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  `perfil` varchar(100) NOT NULL
 )
 
 
@@ -225,7 +228,8 @@ CREATE TABLE `venda` (
   `end_entrega` varchar(45) NOT NULL,
   `id_client` int(11) NOT NULL,
   `matricula` int(11) NOT NULL,
-  `produto_cod_produto` int(11) NOT NULL
+  `produto_cod_produto` int(11) NOT NULL,
+  `vendedor` varchar(255) NOT NULL
 )
 
 
@@ -282,5 +286,6 @@ INSERT INTO `usuarios` (`email`, `senha`, `nome`, `sobrenome`, `telefone`, `cpf`
 ('rinaldo@tcc.com', '12345', 'rinaldo', '', 0, 0, '', '', 0, 2),
 ('roberto@tcc.com', '666777', 'Roberto Antonio', 'Silva', 982713463, 8990076, 'usa', 'RJ', 0, 31);
 
+INSERT INTO `funcionario`(`nome`, `cpf`, `matricula` ,`cep`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cargo`, `dataadmissao`, `datadesligamento`, `email`, `senha`, `perfil`) VALUES ('admin','123.123.123-12', '10', '17026-839', 'Rua Nilton Gimenes Bonachela, Núcleo Habitacional Nobuji Nagasawa', '307', 'teste', 'Núcleo Habitacional Nobuji Nagasawa', 'SP', 'admin', '2018-05-27' ,'','admin@admin.com','admin','2')
 
 commit

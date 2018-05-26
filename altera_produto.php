@@ -7,12 +7,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo"><a href="produtos.php">Admini<span>strador</span></a></div>
-		<div class="adm">
-			<li><a href="#"><span>Adm</span></a></li>
-			<li><a href="#">Sair</a></li>
-		</div><!--adm-->	
-		
+		<?php include 'logo.php' ?>
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>

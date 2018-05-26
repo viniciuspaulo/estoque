@@ -6,6 +6,7 @@
     include_once("conectando.php");
     
     $valor = $_POST['valor'];
+    $vendedor = $_POST['vendedor'];
     $qtd = $_POST['quantidade'];
     $produtos = $_POST['produtos'];
     $data = $_POST['data'];
@@ -16,12 +17,12 @@
 
     if(isset($_POST['id'])){
 
-         $sql = "UPDATE fornecedor SET data = '$data', end_entrega = '$end_entrega', emaid_clientil = '$cliente_id', matricula = '$matricula' WHERE id = '".$_POST['id']."'";
+         $sql = "UPDATE fornecedor SET data = '$data', end_entrega = '$end_entrega', emaid_clientil = '$cliente_id', matricula = '$matricula', vendedor = '$vendedor' WHERE id = '".$_POST['id']."'";
          $resultado_usuario = mysqli_query($conn, $sql);
 
     }else{
 
-        $sql = "INSERT INTO venda (`data`, `end_entrega`, `id_client`, `matricula`,`nun_venda`,`produto_cod_produto`) VALUES ('$data', '$end_entrega', '$cliente_id', '$matricula',0,0); ";
+        $sql = "INSERT INTO venda (`data`, `end_entrega`, `id_client`, `matricula`,`nun_venda`,`produto_cod_produto`,`vendedor`) VALUES ('$data', '$end_entrega', '$cliente_id', '$matricula',0,0,'$vendedor'); ";
         $resultado_usuario = mysqli_query($conn, $sql);
 
         if($resultado_usuario){

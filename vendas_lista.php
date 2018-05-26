@@ -14,20 +14,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo"><a href="produtos.php">Admini<span>strador</span></a></div>
-		<div class="adm">
-			<li><a href="#"><span><?php
-								session_start();
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Adm: '.$_SESSION['adm'].'';
-								}else if(isset($_SESSION['nor'])){
-									echo 'User: '.$_SESSION['nor'].'';
-								}
-							?></span></a></li>
-			<li><a href="sair.php">Sair</a></li>
-		</div>
-
+		<?php include 'logo.php' ?>
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>	
@@ -55,7 +42,7 @@
 									$resultado = mysqli_query($conexao, "select * from venda");	
 									while($venda = mysqli_fetch_assoc($resultado)) {
 
-										$venda['cliente'] = mysqli_fetch_assoc(mysqli_query($conexao, "select * from clientes where cliente_id = 1"));	
+										$venda['cliente'] = mysqli_fetch_assoc(mysqli_query($conexao, "select * from clientes where cliente_id = '".$venda['id_client']."' "));	
 										array_push($vendas, $venda);
 									}
 									$vendas = array_reverse($vendas);

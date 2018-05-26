@@ -14,6 +14,7 @@
     $cidade = $_POST['cidade'];
     $estado = $_POST['estado'];
     $naturalidade = $_POST['naturalidade'];
+    $produto = $_POST['produto'];
 
 
     if(isset($_POST['id'])){
@@ -28,6 +29,7 @@
         estado = '$estado', 
         naturalidade = '$naturalidade', 
         telefone = '$telefone' 
+        produto = '$produto' 
         WHERE id = '".$_POST['id']."'";
 
         $resultado_usuario = mysqli_query($conn, $sql);
@@ -35,8 +37,8 @@
     }else{
 
         $sql = "INSERT INTO 
-        fornecedor (`nome`,`cnpj`, `email`, `telefone`,`complemento`,`bairro`,`cidade`,`estado`,`naturalidade`, `compra_cnpj`) 
-        VALUES ('$nome', '$cnpj', '$email', '$telefone', '$complemento', '$bairro', '$cidade', '$estado','$naturalidade', 0); ";
+        fornecedor (`nome`,`cnpj`, `email`, `telefone`,`complemento`,`bairro`,`cidade`,`estado`,`naturalidade`, `compra_cnpj`, `produto`) 
+        VALUES ('$nome', '$cnpj', '$email', '$telefone', '$complemento', '$bairro', '$cidade', '$estado','$naturalidade', 0, '$produto'); ";
         $resultado_usuario = mysqli_query($conn, $sql);
 
     }

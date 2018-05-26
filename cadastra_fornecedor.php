@@ -9,19 +9,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
-		<div class="adm">
-			<li><a href="#"><span><?php
-								session_start();
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Adm: '.$_SESSION['adm'].'';
-								}else if(isset($_SESSION['nor'])){
-									echo 'User: '.$_SESSION['nor'].'';
-								}
-							?></span></a></li>
-			<li><a href="sair.php">Sair</a></li>
-		</div><!--adm-->		
+		<?php include 'logo.php' ?>		
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>	
@@ -91,6 +79,23 @@
 										<tr>
 											<td>Naturalidade</td>
 											<td><input class="form-control" type="text" name="naturalidade" value="<?= isset($fornecedor['naturalidade']) ? $fornecedor['naturalidade'] : '' ?>"></input></td>
+
+											<td>Produtos :</td>
+											<td>
+												<select name="produto" value="<?= isset($fornecedor['produto']) ? $fornecedor['produto'] : '' ?>">
+													<option value="Tomada">Tomada</option>
+													<option value="Lampada">Lampada</option>
+													<option value="Fechadura">Fechadura</option>
+													<option value="Chuveiro">Chuveiro</option>
+													<option value="Torneira">Torneira</option>
+													<option value="Janelas de aluminio">Janelas de aluminio</option>
+													<option value="Tinta">Tinta</option>
+													<option value="Pincel">Pincel</option>
+													<option value="Lixa">Lixa</option>
+													<option value="Espatula">Espatula</option>
+												</select>
+											</td>
+										
 										</tr>
 										<tr>
 											<td colspan="2">

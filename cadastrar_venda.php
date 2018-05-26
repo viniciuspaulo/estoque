@@ -33,21 +33,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
-		<div class="adm">
-			<li><a href="#"><span><?php
-                                session_start();
-                                
-                                setlocale(LC_MONETARY,"en_US");
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Adm: '.$_SESSION['adm'].'';
-								}else if(isset($_SESSION['nor'])){
-									echo 'User: '.$_SESSION['nor'].'';
-								}
-							?></span></a></li>
-			<li><a href="sair.php">Sair</a></li>
-		</div><!--adm-->		
+        <?php include 'logo.php' ?>	
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>		
@@ -99,12 +85,20 @@
 							<h1>Cadastra Venda</h1>
 								<form>
 									<table class="table">
+
+                                    
                                         <?php if(isset($venda['id']) ) { ?>
                                             <tr>
                                                 <td>Numero da venda :</td>
                                                 <td><input class="form-control" type="text" disabled name="id" value="<?= isset($venda['id']) ? $venda['id'] : '' ?>"></td>
                                             </tr>
                                         <?php };?>
+
+                                        <tr>
+                                            <td>Vendedor :</td>
+                                            <td><input class="form-control" type="text" disabled id="vendedor" name="vendedor" value="<?= isset($venda['id']) ? $venda['vendedor'] : $_SESSION['usuario_nome'] ?>"></td>
+                                        </tr>
+
                                         <tr>
 											<td>Matricula :</td>
 											<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($venda['matricula']) ? $venda['matricula'] : '' ?>"></td>
@@ -119,6 +113,8 @@
                                         </tr>
                                         <tr>
                                             <td>Cliente :</td>
+
+                                            <?php if(!isset($venda['id']) ) { ?>
 											<td><select id="cliente_id" name="cliente_id">
                                                 <?php foreach ($clientes as $cliente) : ?>
                                                     <option value="<?=$cliente['cliente_id']?>">
@@ -126,6 +122,17 @@
                                                     </option> 
                                                 <?php endforeach ?>
                                             </select></td>
+                                            <?php } else { 
+                                                $cliente = null;
+                                                foreach ($clientes as $cli) :
+                                                    if($cli['cliente_id'] === $venda['id_client']){
+                                                        $cliente = $cli;
+                                                    }
+                                                endforeach; if($cliente) {?>
+                                                <td>
+                                                Código : <?= $cliente['cliente_id'] ?> | Nome : <?= $cliente['nome'] ?>
+                                                </td>        
+                                            <?php }} ?>
 										</tr>
 										<tr>
 											<td colspan="2">
@@ -290,6 +297,7 @@
                             matricula : $("#matricula").val(),
                             end_entrega : $("#end_entrega").val(),
                             cliente_id : $("#cliente_id").val(),
+                            vendedor : $("#vendedor").val(),
                             valor : total,
                             quantidade : quantidade,
                             produtos : produtos
