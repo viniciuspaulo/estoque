@@ -38,7 +38,7 @@
 									$funcionario = mysqli_fetch_array($sql);
 								}
 							?>	  
-							<h1>Cadastra Usuário</h1>
+							<h1>Cadastra Funcionario</h1>
 	
 									<div id="cadastro">
 										<form method="post" action="<?=$id ? 'funcionario_alterar.php' : 'funcionario_cadastra_controller.php'?> ">

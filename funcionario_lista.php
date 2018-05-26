@@ -32,7 +32,7 @@
 				<div class="box-painel">
 					<div class="container"><!--centralizar-->
 						<div class="principal">
-							<h1>Consulta usuários - <a href="funcionario_cadastra.php">NOVO</a></h1>
+							<h1>Consulta funcionario - <a href="funcionario_cadastra.php">NOVO</a></h1>
 
 							<br>
 							<div class="form-group pesquisar">
