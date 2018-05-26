@@ -51,6 +51,7 @@
 									<!--Table head-->
 									<thead>
 										<tr>
+											<th>Quantidade</th>
                                             <th>Cod</th>
                                             <th>Cliente</th>
 											<th>Data Pedido</th>
@@ -62,8 +63,11 @@
 
 										<?php
 											foreach ($vendas as $venda) : 
+											$resultado = mysqli_query($conexao, "select * from item_venda where venda_num_venda = '".$venda['id']."'");	
+											$item_prod = mysqli_fetch_assoc($resultado);
 										?>
 										<tr>
+											<td><?= count($item_prod) ?></td>
 											<td><?= $venda['id'] ?></td>
 											<td><?= $venda['cliente']['nome'] ?></td>
 											<td><input type="date" value="<?= $venda['data'] ?>" disabled></td>
