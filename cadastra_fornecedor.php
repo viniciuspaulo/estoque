@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="css/home.css"/>
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+	<script src="js/maskmoney.js"></script>
 	<script src="js/mascara.js"></script>
 	<script src="js/buscacp.js"></script>
 </head>
