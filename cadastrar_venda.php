@@ -213,18 +213,17 @@
 
                                     $item = mysqli_query($conexao, "select * from produtos where id = '".$item_prod['cod_produto']."'");
                                     $item = mysqli_fetch_assoc($item);
+                                    if(isset($item)){
+                                        $item['qtd'] = $item_prod['qtd'];
+                                        $item['total'] = ( (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100 * (int) $item['qtd']);
 
-
-            
-                                    $item['qtd'] = $item_prod['qtd'];
-                                    $item['total'] = ( (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100 * (int) $item['qtd']);
-
-
-                                    for ($cont = 1; $cont <= $item['qtd']; $cont++){
-                                        $total += (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100;
+                                        
+                                        for ($cont = 1; $cont <= $item['qtd']; $cont++){
+                                            $total += (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100;
+                                        }
+                                        
+                                        array_push($itens, $item);
                                     }
-                                    
-                                    array_push($itens, $item);
                                 }
 
 
