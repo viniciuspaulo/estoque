@@ -84,11 +84,12 @@
 												</tr>
 
 												<tr>
-													<td>Cargo :</td>
+													<td>Perfil :</td>
 													<td>
 														<select name="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
+															<option value="2">Gerente</option>
 															<option value="1">Vendedor</option>
-															<option value="2">Administrador</option>
+															<option value="3">Estoquista</option>
 														</select>
 													</td>
 
@@ -113,17 +114,6 @@
 													<td><input class="form-control" id="senha" type="password" name="senha" value="<?= isset($funcionario['senha']) ? $funcionario['senha'] : '' ?>"></td>
 												</tr>
 
-												<tr>
-													<td>Perfil :</td>
-													<td>
-														<select name="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
-															<option value="2">Gerente</option>
-															<option value="1">Vendedor</option>
-															<option value="3">Estoquista</option>
-														</select>
-													</td>
-												</tr>
-										
 												<tr>
 													<td colspan="2"><input type="submit" value="<?=$id ? 'Alterar' : 'Cadastrar'?>" id="btnCad"> 
 													&nbsp;
