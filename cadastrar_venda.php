@@ -82,7 +82,7 @@
 				<div class="box-painel">
 					<div class="container"><!--centralizar-->
 						<div class="principal"> 
-							<h1>Cadastra Venda</h1>
+							<h1>Produtos Vendidos</h1>
 								<form>
 									<table class="table">
 
