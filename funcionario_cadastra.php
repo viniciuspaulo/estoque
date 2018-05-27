@@ -61,6 +61,9 @@
 												?>
 													<input type="hidden" name="funcionario_id" id="funcionario_id" class="txt" value="<?=$funcionario['funcionario_id']?>" />
 												<?php } ?>
+
+												<input type="hidden" name="cargo" id="cargo" class="txt" value="0"  />
+
 												<tr>
 													<td>Nome:</td>
 													<td><input type="text" name="nome" id="nome" class="txt" value="<?=$id ? $funcionario['nome'] : ''?>" /></td>
@@ -95,7 +98,13 @@
 
 												<tr>
 													<td>Cargo:</td>
-													<td><input type="text" name="cargo" id="cargo" class="txt" value="<?= $id ? $funcionario['cargo'] : ''?>"  /></td>
+													<td>
+														<select name="perfil" id="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
+															<option value="1" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '2' ? 'selected' : '' ?>>Vendedor</option>
+															<option value="2" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '1' ? 'selected' : '' ?>>Administrador</option>
+															<option value="3" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '3' ? 'selected' : '' ?>>Estoquista</option>
+														</select>
+													</td>
 
 													<td>Data Admissao:</td>
 													<td><input type="date" name="dataadmissao" id="dataadmissao" class="txt" value="<?= $id ? $funcionario['dataadmissao'] : ''?>" /></td>
@@ -120,15 +129,6 @@
 												<tr>
 													<td>Senha :</td>
 													<td><input class="form-control" id="senha" type="password" name="senha" value="<?= isset($funcionario['senha']) ? $funcionario['senha'] : '' ?>"></td>
-
-													<td>Administrador :</td>
-													<td>
-														<select name="perfil" id="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
-															<option value="2" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '2' ? 'selected' : '' ?>>Vendedor</option>
-															<option value="1" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '1' ? 'selected' : '' ?>>Administrador</option>
-															<option value="3" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '3' ? 'selected' : '' ?>>Estoquista</option>
-														</select>
-													</td>
 												</tr>
 										
 												<tr>
