@@ -94,24 +94,7 @@
                                             </tr>
                                         <?php };?>
 
-                                        <tr>
-                                            <td>Vendedor :</td>
-                                            <td><input class="form-control" type="text" disabled id="vendedor" name="vendedor" value="<?= isset($venda['id']) ? $venda['vendedor'] : $_SESSION['usuario_nome'] ?>"></td>
-                                        </tr>
-
-                                        <tr>
-											<td>Matricula :</td>
-											<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($venda['matricula']) ? $venda['matricula'] : '' ?>"></td>
-                                        </tr>
-                                        <tr>
-											<td>Data :</td>
-											<td><input class="form-control" id="data" type="date" name="data" value="<?= isset($venda['data']) ? $venda['data'] : '' ?>"></td>
-                                        </tr>
-                                        <tr>
-											<td>Entrega :</td>
-											<td><input class="form-control" id="end_entrega" type="date" name="end_entrega" value="<?= isset($venda['end_entrega']) ? $venda['end_entrega'] : '' ?>"></td>
-                                        </tr>
-                                        <tr>
+                                         <tr>
                                             <td>Cliente :</td>
 
                                             <?php if(!isset($venda['id']) ) { ?>
@@ -134,6 +117,25 @@
                                                 </td>        
                                             <?php }} ?>
 										</tr>
+
+                                        <tr>
+                                            <td>Vendedor :</td>
+                                            <td><input class="form-control" type="text" disabled id="vendedor" name="vendedor" value="<?= isset($venda['id']) ? $venda['vendedor'] : $_SESSION['usuario_nome'] ?>"></td>
+                                        </tr>
+
+                                        <tr>
+											<td>Matricula :</td>
+											<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($venda['matricula']) ? $venda['matricula'] : '' ?>"></td>
+                                        </tr>
+                                        <tr>
+											<td>Data :</td>
+											<td><input class="form-control" id="data" type="date" name="data" value="<?= isset($venda['data']) ? $venda['data'] : '' ?>"></td>
+                                        </tr>
+                                        <tr>
+											<td>Entrega :</td>
+											<td><input class="form-control" id="end_entrega" type="date" name="end_entrega" value="<?= isset($venda['end_entrega']) ? $venda['end_entrega'] : '' ?>"></td>
+                                        </tr>
+                                       
 										<tr>
 											<td colspan="2">
                                                 <?php if(!isset($venda['id']) ) { ?>
