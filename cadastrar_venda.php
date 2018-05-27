@@ -174,6 +174,7 @@
                                                         <th>Cod</th>
                                                         <th>Nome</th>
                                                         <th>PRECO</th>
+                                                        <th>Estoque</th>
                                                         <th>Descricao</th>
                                                         <th></th>
                                                     </tr>
@@ -186,7 +187,8 @@
                                                     <tr>
                                                         <td><?= $produto['id'] ?></td>
                                                         <td><?= $produto['nome'] ?></td>
-                                                        <td><?= $produto['preco'] ?></td>
+                                                        <td><span id='produto__<?= $produto['id']; ?>_preco'><?= $produto['preco'] ?></span></td>
+                                                        <td><span id='produto__<?= $produto['id']; ?>_quantidade'><?= $produto['quantidade'] ?></span></td>
                                                         <td><?= $produto['descricao'] ?></td>
                                                         <td>
                                                             <button class="btn btn-primary" onclick="addProdutos(<?= $produto['id'] ?>,'<?= $produto['preco'] ?>')">Adicionar</button>
@@ -214,15 +216,16 @@
                                     $item = mysqli_query($conexao, "select * from produtos where id = '".$item_prod['cod_produto']."'");
                                     $item = mysqli_fetch_assoc($item);
                                     if(isset($item)){
+
                                         $item['qtd'] = $item_prod['qtd'];
                                         $item['total'] = ( (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100 * (int) $item['qtd']);
 
-                                        
-                                        for ($cont = 1; $cont <= $item['qtd']; $cont++){
+                                        for ($cont = 1; $cont <= (int) $item['qtd']; $cont++){
                                             $total += (float)preg_replace('/\D/', '', explode('R$:',$item['preco'])[1])/100;
                                         }
                                         
                                         array_push($itens, $item);
+                                    
                                     }
                                 }
 
@@ -323,6 +326,14 @@
             valor =  parseFloat(valor.split('R$:')[1]);
             quantidade++;
             
+            let estoque = parseInt($(`#produto__${id}_quantidade`).html());
+            if(estoque === 0){
+                alert("Não existe produto em estoque");
+                return;
+            }
+            $(`#produto__${id}_quantidade`).html(--estoque)
+            
+
             let existe = produtos.find(id_s => id_s.id === id);
             if(existe){
                 produtos = produtos.map(produto =>{

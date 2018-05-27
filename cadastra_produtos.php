@@ -38,7 +38,7 @@
 								
 									<div id="cadastro">
 										<form method="post" action="adicionar_produto.php">
-											<table id="cad_tabla_prod">
+											<table class="table" id="cad_tabla_prod">
 												<tr>
 													<td>Nome:</td>
 													<td><input type="text" name="nome" id="nome" class="txt" /></td>
@@ -49,7 +49,12 @@
 												</tr>
 												<tr>
 													<td>Descrição:</td>
-													<td><textarea name="descricao" id="descricao" class="txt"/></textarea></td>
+													<td><textarea name="descricao" id="descricao" class="txt"></textarea></td>
+												</tr>
+
+												<tr>
+													<td>Quantidade em Estoque:</td>
+													<td><input type="number" class="form-control" name="quantidade"/></td>
 												</tr>
 
 												<tr>
@@ -72,7 +77,7 @@
 												<tr>
 													<td colspan="2"><input type="submit" value="Cadastrar" id="btnCad"> 
 													&nbsp;
-													<a href="./">
+													<a href="produtos-lista.php">
 														<input type="button" value="Cancelar" class="btn" id="btnCancelar">
 													</a>
 												</td>

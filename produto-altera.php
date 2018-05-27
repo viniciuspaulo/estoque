@@ -2,7 +2,7 @@
 <head>
 	<title>Painel admin</title>
 	<link rel="stylesheet" type="text/css" href="css/home.css"/>
-
+	<?php include 'script.php' ?>
 </head>
 <body>
 	<div id="header">
@@ -45,15 +45,19 @@
 										</tr>
 										<tr>
 											<td>Preço:</td>
-											<td><input class="form-control" type="number" name="preco" value="<?=$produto['preco']?>"></td>
+											<td><input class="form-control mask-money" type="text" name="preco" value="<?=$produto['preco']?>"></td>
 										</tr>
 										<tr>
 											<td>Descrição:</td>
 											<td><textarea class="form-control" name="descricao"><?=$produto['descricao']?></textarea></td>
 										</tr>
 										<tr>
-											<td></td>
-											<td><input type="checkbox" name="usado" <?=$usado?> value="true"> Usado
+											<td>Quantidade em Estoque:</td>
+											<td><input type="number" class="form-control" name="quantidade" value="<?=$produto['quantidade']?>"></td>
+										</tr>
+										<tr>
+											<td>Usado</td>
+											<td><input type="checkbox" name="usado" <?=$produto['usado'] ? 'checked' : '' ?> /> Usado
 										</tr>
 										<tr>
 											<td>Categoria</td>

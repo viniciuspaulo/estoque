@@ -17,7 +17,7 @@
 
     if(isset($_POST['id'])){
 
-         $sql = "UPDATE fornecedor SET data = '$data', end_entrega = '$end_entrega', emaid_clientil = '$cliente_id', matricula = '$matricula', vendedor = '$vendedor' WHERE id = '".$_POST['id']."'";
+         $sql = "UPDATE fornecedor SET data = '$data', end_entrega = '$end_entrega', emaid_clientil = '$cliente_id', matricula = '$matricula', vendedor = '$vendedor' WHERE id = '".$_POST['id']."' ";
          $resultado_usuario = mysqli_query($conn, $sql);
 
     }else{
@@ -36,6 +36,16 @@
         
                     $sql = "INSERT INTO item_venda (`nun_venda`, `cod_produto`, `qtd`, `valor`,`venda_num_venda`) VALUES ('$id_venda', '$id', '$quantidade', '$valor',$id_venda); ";
                     $resultado_usuario = mysqli_query($conn, $sql);
+
+
+                    $sql = "SELECT * FROM produtos  WHERE id = '$id' ";
+                    $resulte_produto = mysqli_query($conn, $sql);
+                    $produto = mysqli_fetch_assoc($resulte_produto);
+                    $qunatidade = ((int) $produto['quantidade'] - (int) $quantidade);
+
+                    $sql = "UPDATE produtos SET quantidade = '$qunatidade'  WHERE id = '".$id."'  ";
+                    $resultado_usuario = mysqli_query($conn, $sql);
+
                 }
             }
         }else{

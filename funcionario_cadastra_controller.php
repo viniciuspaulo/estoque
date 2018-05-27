@@ -16,6 +16,7 @@ $datadesligamento=$_POST['datadesligamento'];
 $email=$_POST['email'];
 $senha=$_POST['senha'];
 $perfil=$_POST['perfil'];
+$telefone=$_POST['telefone'];
 
 
 if(empty($nome)){
@@ -27,8 +28,8 @@ if(empty($nome)){
 }
 
 
-$sql = mysqli_query($conexao, "INSERT INTO funcionario(nome, cpf, matricula ,cep, endereco, numero, complemento, bairro, estado, cargo, dataadmissao, datadesligamento, email, senha, perfil) 
-VALUES('$nome','$cpf', '$matricula', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cargo', '$dataadmissao' ,'$datadesligamento','$email','$senha','$perfil')");
+$sql = mysqli_query($conexao, "INSERT INTO funcionario(nome, cpf, matricula ,cep, endereco, numero, complemento, bairro, estado, cargo, dataadmissao, datadesligamento, email, senha, perfil , telefone) 
+VALUES('$nome','$cpf', '$matricula', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cargo', '$dataadmissao' ,'$datadesligamento','$email','$senha','$perfil', '$telefone')");
 
 if($sql){
 	echo "<center><h1> Cadastrado com sucesso </h1></center>";

@@ -1,65 +1,35 @@
-<html>
-<head>
-	<title>Painel admin</title>
-	<link rel="stylesheet" type="text/css" href="css/home.css"/>
-	<link rel="stylesheet" type="text/css" href="css/.css"/>
+<?php
+include 'conecta.php';
 
-</head>
-<body>
-	<div id="header">
-		<?php include 'logo.php' ?>
-		<nav>
-			<?php include 'menu.php' ?>
-		</nav>
+$nome = $_POST["nome"];
+$preco = $_POST["preco"];
+$quantidade = $_POST["quantidade"];
+$descricao = $_POST["descricao"];
+$categoria_id = $_POST["categoria_id"];
+$usado = $_POST["usado"];
+$id = $_POST["id"];
 
-	</div><!-- fim header-->
-	<div id="container">
-		
-		<div class="sidebar">
-			<?php include 'menu-lateral.php' ?>
-		</div>
 
-		<div class="content">
-			<h1>Dashboard</h1>
-			<p>Sistema de Gestão de Material de Construção</p>
-
-			<div id="box">
-				<div class="box-top"></div><!--box-top-->
-				<div class="box-painel">
-					<div class="container"><!--centralizar-->
-						<div class="principal">
-	<?php include("conecta.php"); ?>
-	<?php include("banco-produto.php");
-	
-	$id =  $_POST['id'];
-	$nome =  $_POST['nome'];
-	$preco = $_POST['preco'];
-	$descricao = $_POST['descricao'];
-	$categoria_id = $_POST['categoria_id'];
-	if(array_key_exists('usado', $_POST)) {
-		$usado = "true";
+if($usado != NULL){
+	$usado = 1;
 }else{
-	$usado = "false";
+	$usado = 0;
+}
 
-	}
+$sql = mysqli_query($conexao,"UPDATE produtos set 
+nome = '$nome',
+preco = '$preco', 
+quantidade = '$quantidade', 
+descricao = '$descricao',
+usado = '$usado',
+categoria_id = '$categoria_id' 
+where id = '$id' ");
 
-	if(alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado)) { ?>
-		<p class="alert-success">produto <?php echo $nome;?>, <?php echo $preco; ?>alterado com sucesso!</p>
-	<?php } else { ?>
-		<p class="alert-danger">produto <?php echo $nome;?> não foi alterado!</p>
-	<?php
-	}
+if($sql){
+	echo "<center><h1> Atualizar com sucesso </h1></center>";
+	header("Location: produtos-lista.php");
+}else{
+	header("Location: produto-altera.php?id=$id");
+};
 
-	mysqli_close($conexao);
-
-	?>
-	
-						</div><!--principal-->		
-					</div><!--container-->	
-				</div><!--box-painel-->	
-			</div><!--box-->
-			
-		</div><!--content-->
-	</div><!--container-->
-</body>
-</html>
+mysqli_close($cid);

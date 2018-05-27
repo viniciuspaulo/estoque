@@ -111,6 +111,7 @@ CREATE TABLE `funcionario` (
   `bairro` varchar(100) NOT NULL,
   `estado` varchar(100) NOT NULL,
   `cargo` varchar(100) NOT NULL,
+  `telefone` varchar(100),
   `dataadmissao` varchar(100) NOT NULL,
   `datadesligamento` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -159,6 +160,7 @@ CREATE TABLE `produtos` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `preco` varchar(10) DEFAULT NULL,
+  `quantidade` int(10) DEFAULT NULL,
   `descricao` text,
   `categoria_id` int(11) DEFAULT NULL,
   `usado` tinyint(1) DEFAULT '0'
@@ -286,6 +288,6 @@ INSERT INTO `usuarios` (`email`, `senha`, `nome`, `sobrenome`, `telefone`, `cpf`
 ('rinaldo@tcc.com', '12345', 'rinaldo', '', 0, 0, '', '', 0, 2),
 ('roberto@tcc.com', '666777', 'Roberto Antonio', 'Silva', 982713463, 8990076, 'usa', 'RJ', 0, 31);
 
-INSERT INTO `funcionario`(`nome`, `cpf`, `matricula` ,`cep`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cargo`, `dataadmissao`, `datadesligamento`, `email`, `senha`, `perfil`) VALUES ('admin','123.123.123-12', '10', '17026-839', 'Rua Nilton Gimenes Bonachela, Núcleo Habitacional Nobuji Nagasawa', '307', 'teste', 'Núcleo Habitacional Nobuji Nagasawa', 'SP', 'admin', '2018-05-27' ,'','admin@admin.com','admin','2')
+INSERT INTO `funcionario`(`nome`, `cpf`, `matricula` ,`cep`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cargo`, `dataadmissao`, `datadesligamento`, `email`, `senha`, `perfil`,`telefone`) VALUES ('admin','123.123.123-12', '10', '17026-839', 'Rua Nilton Gimenes Bonachela, Núcleo Habitacional Nobuji Nagasawa', '307', 'teste', 'Núcleo Habitacional Nobuji Nagasawa', 'SP', 'admin', '2018-05-27' ,'','admin@admin.com','admin','2','014996726674')
 
 commit

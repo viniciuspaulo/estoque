@@ -10,7 +10,19 @@
 </head>
 <body>
 	<div id="header">
-		<?php include 'logo.php' ?>	
+		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
+		<div class="adm">
+			<li><a href="#"><span><?php
+								session_start();
+								
+								if(isset($_SESSION['adm'])){
+									echo 'Adm: '.$_SESSION['adm'].'';
+								}else if(isset($_SESSION['nor'])){
+									echo 'User: '.$_SESSION['nor'].'';
+								}
+							?></span></a></li>
+			<li><a href="sair.php">Sair</a></li>
+		</div><!--adm-->		
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>	
@@ -38,7 +50,7 @@
 									$funcionario = mysqli_fetch_array($sql);
 								}
 							?>	  
-							<h1>Cadastra Funcionario</h1>
+							<h1>Cadastra Funcionário</h1>
 	
 									<div id="cadastro">
 										<form method="post" action="<?=$id ? 'funcionario_alterar.php' : 'funcionario_cadastra_controller.php'?> ">
@@ -49,8 +61,6 @@
 												?>
 													<input type="hidden" name="funcionario_id" id="funcionario_id" class="txt" value="<?=$funcionario['funcionario_id']?>" />
 												<?php } ?>
-
-												<input type="hidden" name="cargo" id="cargo" class="txt" value="1"  />
 												<tr>
 													<td>Nome:</td>
 													<td><input type="text" name="nome" id="nome" class="txt" value="<?=$id ? $funcionario['nome'] : ''?>" /></td>
@@ -84,15 +94,8 @@
 												</tr>
 
 												<tr>
-													<td>Perfil :</td>
-													<td>
-														<select name="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
-															<option value="2">Gerente</option>
-															<option value="1">Vendedor</option>
-															<option value="3">Estoquista</option>
-														</select>
-													</td>
-
+													<td>Cargo:</td>
+													<td><input type="text" name="cargo" id="cargo" class="txt" value="<?= $id ? $funcionario['cargo'] : ''?>"  /></td>
 
 													<td>Data Admissao:</td>
 													<td><input type="date" name="dataadmissao" id="dataadmissao" class="txt" value="<?= $id ? $funcionario['dataadmissao'] : ''?>" /></td>
@@ -110,10 +113,18 @@
 													<td>Email :</td>
 													<td><input type="text" name="email" id="email" class="txt" value="<?= $id ? $funcionario['email'] : ''?>" /></td>
 
-													<td>Senha :</td>
-													<td><input class="form-control" id="senha" type="password" name="senha" value="<?= isset($funcionario['senha']) ? $funcionario['senha'] : '' ?>"></td>
+													<td>Telefone :</td>
+													<td><input type="text" name="telefone" id="telefone" class="txt mask-cel" value="<?= $id ? $funcionario['telefone'] : ''?>" /></td>
 												</tr>
 
+												<tr>
+													<td>Senha :</td>
+													<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($funcionario['matricula']) ? $funcionario['matricula'] : '' ?>"></td>
+
+													<td>Administrador :</td>
+													<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($funcionario['matricula']) ? $funcionario['matricula'] : '' ?>"></td>
+												</tr>
+										
 												<tr>
 													<td colspan="2"><input type="submit" value="<?=$id ? 'Alterar' : 'Cadastrar'?>" id="btnCad"> 
 													&nbsp;
