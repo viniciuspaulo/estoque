@@ -74,7 +74,7 @@
 
 												<tr>
 													<td>Cep:</td>
-													<td><input type="text" name="cep" id="cep" class="txt mask-cep" value="<?= $id ? $funcionario['cep'] : ''?>"/></td>
+													<td><input type="text" name="cep" id="cep" class="mask-cep txt" value="<?= $id ? $funcionario['cep'] : ''?>"/></td>
 
 													<td>Endereço:</td>
 													<td><input type="text" name="endereco" id="endereco" class="txt" value="<?= $id ? $funcionario['endereco'] : ''?>" /></td>
