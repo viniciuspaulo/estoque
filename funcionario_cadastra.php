@@ -119,10 +119,16 @@
 
 												<tr>
 													<td>Senha :</td>
-													<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($funcionario['matricula']) ? $funcionario['matricula'] : '' ?>"></td>
+													<td><input class="form-control" id="senha" type="password" name="senha" value="<?= isset($funcionario['senha']) ? $funcionario['senha'] : '' ?>"></td>
 
 													<td>Administrador :</td>
-													<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($funcionario['matricula']) ? $funcionario['matricula'] : '' ?>"></td>
+													<td>
+														<select name="perfil" id="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
+															<option value="2" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '2' ? 'selected' : '' ?>>Vendedor</option>
+															<option value="1" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '1' ? 'selected' : '' ?>>Administrador</option>
+															<option value="3" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '3' ? 'selected' : '' ?>>Estoquista</option>
+														</select>
+													</td>
 												</tr>
 										
 												<tr>
