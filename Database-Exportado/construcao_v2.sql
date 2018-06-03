@@ -209,17 +209,6 @@ INSERT INTO `categorias` (`id`, `nome`) VALUES
 -- Extraindo dados da tabela `produtos`
 --
 
-INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`) VALUES
-(28, 'dsgsdg', 44.00, 'dgddgg', NULL, 0),
-(29, 'Espatula', 5.00, 'espatula para pintura', NULL, 0),
-(31, 'Luvas', 5.00, 'Luvas para lavagem', 4, 0),
-(32, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
-(33, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
-(34, 'Barra de Ferro', 37.00, 'Material de construÃ§Ã£o civil usado pelos pedreiros', 9, 1),
-(35, 'Tijolo', 10.00, 'tijolo', 9, 0),
-(36, 'cerrote', 9.00, 'cerro de madeira', 3, 1),
-(37, 'ferro fundido', 21.00, 'ferro velho', 3, 0);
-
 
 INSERT INTO `funcionario`(`nome`, `cpf`, `matricula` ,`cep`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cargo`, `dataadmissao`, `datadesligamento`, `email`, `senha`, `perfil`,`telefone`) VALUES ('admin','123.123.123-12', '10', '17026-839', 'Rua Nilton Gimenes Bonachela, Núcleo Habitacional Nobuji Nagasawa', '307', 'teste', 'Núcleo Habitacional Nobuji Nagasawa', 'SP', 'admin', '2018-05-27' ,'','admin@admin.com','admin','2','014996726674')
 
