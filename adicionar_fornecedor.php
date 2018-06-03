@@ -28,7 +28,7 @@
         cidade = '$cidade', 
         estado = '$estado', 
         naturalidade = '$naturalidade', 
-        telefone = '$telefone' 
+        telefone = '$telefone',
         produto = '$produto' 
         WHERE id = '".$_POST['id']."'";
 

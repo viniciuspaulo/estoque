@@ -97,7 +97,7 @@
 			if(cliente){
 				document.location = `cliente_cadastra.php?id=${cliente.cliente_id}`;
 			}else{
-				if(confirm("Deseja cadastrar um novo funcionario ?")){
+				if(confirm("Deseja cadastrar um novo cliente ?")){
 					document.location = `cliente_cadastra.php`;
 				}
 			}

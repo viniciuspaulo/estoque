@@ -327,9 +327,10 @@
          addProdutos = (id,valor) =>{
             valor =  parseFloat(valor.split('R$:')[1]);
 
-            let quantidade = parseInt(prompt('Digte a quantidade'));
-
             let estoque = parseInt($(`#produto__${id}_quantidade`).html());
+
+            let quantidade = parseInt(prompt(`Digte a quantidade |  Disponível : ${estoque}`));
+
             if(estoque === 0){
                 alert("Não existe produto em estoque");
                 return;
