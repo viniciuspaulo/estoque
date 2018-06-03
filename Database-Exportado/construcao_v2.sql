@@ -221,24 +221,6 @@ INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usa
 (37, 'ferro fundido', 21.00, 'ferro velho', 3, 0);
 
 
---
--- Extraindo dados da tabela `usuario`
---
-
-INSERT INTO `usuario` (`idUser`, `Username`, `Email`, `Password`, `Dataregistro`, `Permissao`) VALUES
-(1, 'admin', 'admin@admin.com', 'admin', '', '1');
-
-
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`email`, `senha`, `nome`, `sobrenome`, `telefone`, `cpf`, `pais`, `estado`, `adm`, `id`) VALUES
-('joaquim@tcc.com', '1234', 'joaquim', '', 0, 0, '', '', 1, 1),
-('rinaldo@tcc.com', '12345', 'rinaldo', '', 0, 0, '', '', 0, 2),
-('roberto@tcc.com', '666777', 'Roberto Antonio', 'Silva', 982713463, 8990076, 'usa', 'RJ', 0, 31);
-
 INSERT INTO `funcionario`(`nome`, `cpf`, `matricula` ,`cep`, `endereco`, `numero`, `complemento`, `bairro`, `estado`, `cargo`, `dataadmissao`, `datadesligamento`, `email`, `senha`, `perfil`,`telefone`) VALUES ('admin','123.123.123-12', '10', '17026-839', 'Rua Nilton Gimenes Bonachela, Núcleo Habitacional Nobuji Nagasawa', '307', 'teste', 'Núcleo Habitacional Nobuji Nagasawa', 'SP', 'admin', '2018-05-27' ,'','admin@admin.com','admin','2','014996726674')
 
 commit
