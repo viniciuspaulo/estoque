@@ -84,16 +84,16 @@
 											<td>Produtos :</td>
 											<td>
 												<select name="produto" value="<?= isset($fornecedor['produto']) ? $fornecedor['produto'] : '' ?>">
-													<option value="Tomada">Tomada</option>
-													<option value="Lampada">Lampada</option>
-													<option value="Fechadura">Fechadura</option>
-													<option value="Chuveiro">Chuveiro</option>
-													<option value="Torneira">Torneira</option>
-													<option value="Janelas de aluminio">Janelas de aluminio</option>
-													<option value="Tinta">Tinta</option>
-													<option value="Pincel">Pincel</option>
-													<option value="Lixa">Lixa</option>
-													<option value="Espatula">Espatula</option>
+													<option value="Tomada" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Tomada' ? 'selected' : '' ?>>Tomada</option>
+													<option value="Lampada" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Lampada' ? 'selected' : '' ?>>Lampada</option>
+													<option value="Fechadura" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Fechadura' ? 'selected' : '' ?>>Fechadura</option>
+													<option value="Chuveiro" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Chuveiro' ? 'selected' : '' ?>>Chuveiro</option>
+													<option value="Torneira" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Torneira' ? 'selected' : '' ?>>Torneira</option>
+													<option value="Janelas de aluminio"> <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Janelas de aluminio' ? 'selected' : '' ?>Janelas de aluminio</option>
+													<option value="Tinta" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Tinta' ? 'selected' : '' ?>>Tinta</option>
+													<option value="Pincel" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Pincel' ? 'selected' : '' ?>>Pincel</option>
+													<option value="Lixa" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Lixa' ? 'selected' : '' ?>>Lixa</option>
+													<option value="Espatula" <?= isset($fornecedor['produto']) && $fornecedor['produto'] == 'Espatula' ? 'selected' : '' ?>>Espatula</option>
 												</select>
 											</td>
 										
