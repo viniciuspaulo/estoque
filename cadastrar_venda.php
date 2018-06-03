@@ -98,7 +98,7 @@
                                             <td>Cliente :</td>
 
                                             <?php if(!isset($venda['id']) ) { ?>
-											<td><select id="cliente_id" name="cliente_id">
+											<td><select id="cliente_id" name="cliente_id" class="form-control">
                                                 <?php foreach ($clientes as $cliente) : ?>
                                                     <option value="<?=$cliente['cliente_id']?>">
                                                         <?=$cliente['nome']?>
@@ -125,7 +125,7 @@
 
                                         <tr>
 											<td>Matricula :</td>
-											<td><input class="form-control" id="matricula" type="number" name="matricula" value="<?= isset($venda['matricula']) ? $venda['matricula'] : '' ?>"></td>
+											<td><input class="form-control" id="matricula" type="number" name="matricula" disabled value="<?= $_SESSION['matricula'] ?>"></td>
                                         </tr>
                                         <tr>
 											<td>Data :</td>

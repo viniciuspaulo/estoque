@@ -12,15 +12,6 @@
 	<div id="header">
 		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
 		<div class="adm">
-			<li><a href="#"><span><?php
-								session_start();
-								
-								if(isset($_SESSION['adm'])){
-									echo 'Adm: '.$_SESSION['adm'].'';
-								}else if(isset($_SESSION['nor'])){
-									echo 'User: '.$_SESSION['nor'].'';
-								}
-							?></span></a></li>
 			<li><a href="sair.php">Sair</a></li>
 		</div><!--adm-->		
 		<nav>
@@ -99,9 +90,9 @@
 												<tr>
 													<td>Cargo:</td>
 													<td>
-														<select name="perfil" id="perfil" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
-															<option value="1" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '2' ? 'selected' : '' ?>>Vendedor</option>
-															<option value="2" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '1' ? 'selected' : '' ?>>Administrador</option>
+														<select name="perfil" id="perfil" class="form-control" value="<?= isset($funcionario['perfil']) ? $funcionario['perfil'] : '' ?>">
+															<option value="1" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '1' ? 'selected' : '' ?>>Vendedor</option>
+															<option value="2" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '2' ? 'selected' : '' ?>>Administrador</option>
 															<option value="3" <?= isset($funcionario['perfil']) && $funcionario['perfil'] == '3' ? 'selected' : '' ?>>Estoquista</option>
 														</select>
 													</td>

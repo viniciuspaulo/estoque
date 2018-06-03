@@ -166,56 +166,7 @@ CREATE TABLE `produtos` (
   `usado` tinyint(1) DEFAULT '0'
 )
 
--- --------------------------------------------------------
 
---
--- Estrutura da tabela `usuario`
---
-
-CREATE TABLE `usuario` (
-  `idUser` int PRIMARY KEY AUTO_INCREMENT,
-  `Username` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
-  `Dataregistro` varchar(45) NOT NULL,
-  `Permissao` varchar(45) NOT NULL
-)
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuarios`
---
-
-CREATE TABLE `usuarios` (
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  `nome` varchar(100) NOT NULL,
-  `sobrenome` varchar(250) NOT NULL,
-  `telefone` int(100) NOT NULL,
-  `cpf` int(10) NOT NULL,
-  `pais` varchar(100) NOT NULL,
-  `estado` varchar(100) NOT NULL,
-  `adm` int(10) NOT NULL,
-  `id` int PRIMARY KEY AUTO_INCREMENT
-)
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuariox`
---
-
-CREATE TABLE `usuariox` (
-  `nome` varchar(250) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `cep` varchar(250) NOT NULL,
-  `rua` varchar(250) NOT NULL,
-  `bairro` varchar(250) NOT NULL,
-  `cidade` varchar(250) NOT NULL,
-  `uf` varchar(250) NOT NULL,
-  `id` int PRIMARY KEY AUTO_INCREMENT
-)
 
 -- --------------------------------------------------------
 

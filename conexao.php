@@ -16,6 +16,7 @@
 			$_SESSION['usuario_email'] = $email;
 			$_SESSION['usuario_nome'] = $usuario['nome'] ;
 			$_SESSION['perfil'] = $usuario['perfil'] ;
+			$_SESSION['matricula'] = $usuario['matricula'] ;
 
 			header("Location: vendas_lista.php");
 		}else{
