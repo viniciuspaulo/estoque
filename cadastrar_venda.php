@@ -326,14 +326,21 @@
 
          addProdutos = (id,valor) =>{
             valor =  parseFloat(valor.split('R$:')[1]);
-            quantidade++;
-            
+
+            let quantidade = parseInt(prompt('Digte a quantidade'));
+
             let estoque = parseInt($(`#produto__${id}_quantidade`).html());
             if(estoque === 0){
                 alert("Não existe produto em estoque");
                 return;
             }
-            $(`#produto__${id}_quantidade`).html(--estoque)
+            
+            if(quantidade > estoque){
+                alert("Quantidade insulficiente");
+                return;
+            }
+
+            $(`#produto__${id}_quantidade`).html(estoque - quantidade)
             
 
             let existe = produtos.find(id_s => id_s.id === id);
@@ -341,14 +348,14 @@
                 produtos = produtos.map(produto =>{
                     if(produto.id === id){
                         total += valor;
-                        produto.quantidade++;
+                        produto.quantidade += quantidade;
                     }
                     return produto;
                 });
             }else{
                 let produto = {};
                 produto.id = id;
-                produto.quantidade = 1;
+                produto.quantidade = quantidade;
                 produto.valor = valor;
                 produtos.push(produto);
             }

@@ -10,10 +10,7 @@
 </head>
 <body>
 	<div id="header">
-		<div class="logo"><a href="logado.php">Admini<span>strador</span></a></div>
-		<div class="adm">
-			<li><a href="sair.php">Sair</a></li>
-		</div><!--adm-->		
+		<?php include 'logo.php' ?>	
 		<nav>
 			<?php include 'menu.php' ?>
 		</nav>	
