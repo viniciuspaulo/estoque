@@ -45,7 +45,8 @@
 							        <tr>
 							            <th>Nome</th>
 										<th>Quantidade</th>
-							            <th>Preço</th>
+										<th>Valor de compra</th>
+							            <th>Valor de venda</th>
 							            <th>Descrição</th>
 							            <th>Categoria</th>
 							            <th>Alterar</th>
@@ -62,6 +63,7 @@
 									<tr>
 										<td><?= $produto['nome'] ?></td>
 										<td><?= $produto['quantidade'] ?></td>
+										<td><?= $produto['compra'] ?></td>
 										<td><?= $produto['preco'] ?></td>
 										<td><?= substr($produto['descricao'],0 ,40) ?></td>
 										<td><?= $produto['categoria_nome']?></td>
