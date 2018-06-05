@@ -47,7 +47,6 @@
 										<th>Quantidade</th>
 										<th>Compra</th>
 							            <th>Venda</th>
-							            <th>Descrição</th>
 							            <th>Categoria</th>
 							            <th>Alterar</th>
 							            <th>Apagar</th>
