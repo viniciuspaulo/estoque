@@ -44,8 +44,12 @@
 													<td><input type="text" name="nome" id="nome" class="txt" /></td>
 												</tr>
 												<tr>
-													<td>Preço:</td>
-													<td><input type="text" name="preco" id="preco" class="txt mask-money" /></td>
+													<td>Valor da compra:</td>
+													<td><input class="form-control mask-money" type="text" id="compra" name="compra"></td>
+												</tr>
+												<tr>
+													<td>Valor da venda:</td>
+													<td><input class="form-control mask-money" type="text" id="preco" name="preco"></td>
 												</tr>
 												<tr>
 													<td>Descrição:</td>
