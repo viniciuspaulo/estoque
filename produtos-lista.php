@@ -45,8 +45,8 @@
 							        <tr>
 							            <th>Nome</th>
 										<th>Quantidade</th>
-										<th>Valor de compra</th>
-							            <th>Valor de venda</th>
+										<th>Compra</th>
+							            <th>Venda</th>
 							            <th>Descrição</th>
 							            <th>Categoria</th>
 							            <th>Alterar</th>
