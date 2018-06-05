@@ -220,3 +220,6 @@ commit
 ALTER TABLE produtos ADD compra varchar(255);
 ALTER TABLE venda ADD pagamento int;
 
+-- DATA 05/06/2018
+
+JOAQUIM ALTERA ESSA TABELA NO BANCO
