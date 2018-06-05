@@ -135,6 +135,17 @@
 											<td>Entrega :</td>
 											<td><input class="form-control" id="end_entrega" type="date" name="end_entrega" value="<?= isset($venda['end_entrega']) ? $venda['end_entrega'] : '' ?>"></td>
                                         </tr>
+                                        <tr>
+                                            <td>Forma de Pagamento:</td>
+                                            <td>
+                                                <select name="pagamento" id="pagamento" class="form-control" <?= isset($venda['id']) ? 'disabled' : '' ?> value="<?= isset($funcionario['pagamento']) ? $funcionario['pagamento'] : '' ?>">
+                                                    <option value="1" <?= isset($venda['pagamento']) && $venda['pagamento'] == '1' ? 'selected' : '' ?>>Cartao de crédito</option>
+                                                    <option value="2" <?= isset($venda['pagamento']) && $venda['pagamento'] == '2' ? 'selected' : '' ?>>Cartão de débito</option>
+                                                    <option value="3" <?= isset($venda['pagamento']) && $venda['pagamento'] == '3' ? 'selected' : '' ?>>Boleto</option>
+                                                    <option value="4" <?= isset($venda['pagamento']) && $venda['pagamento'] == '4' ? 'selected' : '' ?>>Cheque</option>
+                                                </select>
+                                            </td>
+                                        </tr>
                                        
 										<tr>
 											<td colspan="2">
@@ -299,6 +310,7 @@
                         data: {
                             data : $("#data").val(),
                             matricula : $("#matricula").val(),
+                            pagamento : $("#pagamento").val(),
                             end_entrega : $("#end_entrega").val(),
                             cliente_id : $("#cliente_id").val(),
                             vendedor : $("#vendedor").val(),

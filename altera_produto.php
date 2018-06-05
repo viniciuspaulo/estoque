@@ -3,6 +3,7 @@ include 'conecta.php';
 
 $nome = $_POST["nome"];
 $preco = $_POST["preco"];
+$compra = $_POST["compra"];
 $quantidade = $_POST["quantidade"];
 $descricao = $_POST["descricao"];
 $categoria_id = $_POST["categoria_id"];
@@ -22,6 +23,7 @@ preco = '$preco',
 quantidade = '$quantidade', 
 descricao = '$descricao',
 usado = '$usado',
+compra = '$compra',
 categoria_id = '$categoria_id' 
 where id = '$id' ");
 

@@ -36,10 +36,27 @@
 									$id = $_GET['id'];
 									$sql = mysqli_query($conexao, "SELECT * FROM funcionario WHERE funcionario_id = '$id'");
 									$funcionario = mysqli_fetch_array($sql);
+
+									
+									$join = "select * from venda v
+									inner join item_venda i on i.`nun_venda` = v.`id` 
+									inner join produtos p on p.id = i.`cod_produto`
+									where v.vendedor = '".$funcionario['nome']."'";
+
+									$sql = mysqli_query($conexao, $join);
+									$vendas = mysqli_fetch_array($sql);
+
+									//var_dump($vendas);
 								}
 							?>	  
-							<h1>Cadastra Funcionário</h1>
-	
+							<br>
+							<h1>
+								Cadastra Funcionário
+								
+								<?php if(isset($vendas)) { ?>
+								| <button id="relatorio" class="btn" style="width : auto; background-color : #fd5e60; color : #fff;"> Relatório e Vendas</button> 
+								<?php } ?>
+							</h1>
 									<div id="cadastro">
 										<form method="post" action="<?=$id ? 'funcionario_alterar.php' : 'funcionario_cadastra_controller.php'?> ">
 											<table id="cad_table" cellspacing="5">
@@ -118,7 +135,7 @@
 													<td>Senha :</td>
 													<td><input class="form-control" id="senha" type="password" name="senha" value="<?= isset($funcionario['senha']) ? $funcionario['senha'] : '' ?>"></td>
 												</tr>
-										
+											
 												<tr>
 													<td colspan="2"><input type="submit" value="<?=$id ? 'Alterar' : 'Cadastrar'?>" id="btnCad"> 
 													&nbsp;
@@ -127,6 +144,24 @@
 												</tr>	
 											</table>
 										</form>
+
+										<?php if(isset($vendas)) var_dump($vendas);{ ?>
+											<div id="tabela-relatorio" style="display:none">
+												Relatório de Vendas
+												<table class="table">
+													<thead>
+														<tr>
+															<th>Venda</th>
+														</tr>
+													</thead>
+													<?php foreach ($vendas as $venda) : ?>
+													<tr>
+														<td><?= 1?></td>
+													</tr>	
+													<?php endforeach ?>
+												</table>		
+											</div>
+										<?php } ?>
 									</div>
 						</div><!--principal-->		
 					</div><!--container-->	
@@ -135,5 +170,10 @@
 		</div><!--content-->
 		
 	</div><!--container-->
+	<script>
+		$("#relatorio").click(()=>{
+			$("#tabela-relatorio").toggle();
+		});
+	</script>
 </body>
 </html>

@@ -44,7 +44,11 @@
 											 <td><input class="form-control" type="text" name="nome" value="<?=$produto['nome']?>"></td>
 										</tr>
 										<tr>
-											<td>Preço:</td>
+											<td>Valor da compra:</td>
+											<td><input class="form-control mask-money" type="text" name="compra" value="<?=$produto['compra']?>"></td>
+										</tr>
+										<tr>
+											<td>Valor da venda:</td>
 											<td><input class="form-control mask-money" type="text" name="preco" value="<?=$produto['preco']?>"></td>
 										</tr>
 										<tr>
