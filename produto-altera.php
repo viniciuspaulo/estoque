@@ -34,6 +34,12 @@
 								  $produto = buscaProduto($conexao, $id);
 								  $categorias = listaCategorias($conexao);
 								  $usado = $produto['usado'] ? "checked='checked'" : "";
+
+								  $query = mysqli_query($conexao, "SELECT * FROM fornecedor");
+								  $fornecedores =  [];
+								  while($fornec = mysqli_fetch_assoc($query)) {
+									array_push($fornecedores, $fornec['nome']);
+								  }
 							?>							
 							<h1>Altera produtos</h1>
 								<form action="altera_produto.php" method="post">
@@ -77,7 +83,20 @@
 														</option>
 													<?php endforeach ?>
 												</select>
-										    </tr>							
+										    </td>
+										</tr>
+										<tr>
+											<td>Fornecedor</td>
+											<td>
+												<select class="form-control" name="fornecedor" class="fornecedor">
+													<?php foreach ($fornecedores as $fornecedor) :?>
+														<option	value="<?=$fornecedor?>" <?= $fornecedor == $produto['fornecedor'] ? 'selected' : '' ?> >
+															<?=$fornecedor?>
+														</option>
+													<?php endforeach ?>
+												</select>
+										    </td>
+										</tr>
 										<tr>
 											<td>	
 												<button class="btn btn-primary" type="submit">Alterar</button>

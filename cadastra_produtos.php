@@ -32,6 +32,12 @@
 								  include("banco-categoria.php");
 
 								  $categorias = listaCategorias($conexao);
+
+								  $query = mysqli_query($conexao, "SELECT * FROM fornecedor");
+								  $fornecedores =  [];
+								  while($fornec = mysqli_fetch_assoc($query)) {
+									array_push($fornecedores, $fornec['nome']);
+								  }
     
 							?>	  
 							<h1>Cadastra produto</h1>
@@ -72,6 +78,19 @@
 															<?php foreach ($categorias as $categoria) : ?>
 																<option value="<?=$categoria['id']?>">
 																	<?=$categoria['nome']?>
+																</option> 
+															<?php endforeach ?>
+														</select>
+													</td>
+												</tr>
+
+												<tr>
+													<td>Fornecedor:</td>
+													<td>
+														<select name="fornecedor">
+															<?php foreach ($fornecedores as $fornecedor) : ?>
+																<option value="<?= $fornecedor ?> ">
+																	<?= $fornecedor ?>
 																</option> 
 															<?php endforeach ?>
 														</select>

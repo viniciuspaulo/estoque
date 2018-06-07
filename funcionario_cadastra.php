@@ -53,9 +53,9 @@
 							<h1>
 								Cadastra Funcionário
 								
-								<?php if(isset($vendas)) { ?>
+								<!-- <?php if(isset($vendas)) { ?>
 								| <button id="relatorio" class="btn" style="width : auto; background-color : #fd5e60; color : #fff;"> Relatório e Vendas</button> 
-								<?php } ?>
+								<?php } ?> -->
 							</h1>
 									<div id="cadastro">
 										<form method="post" action="<?=$id ? 'funcionario_alterar.php' : 'funcionario_cadastra_controller.php'?> ">
@@ -145,7 +145,7 @@
 											</table>
 										</form>
 
-										<?php if(isset($vendas)) var_dump($vendas);{ ?>
+										<!-- <?php if(isset($vendas)){ ?>
 											<div id="tabela-relatorio" style="display:none">
 												Relatório de Vendas
 												<table class="table">
@@ -161,7 +161,7 @@
 													<?php endforeach ?>
 												</table>		
 											</div>
-										<?php } ?>
+										<?php } ?> -->
 									</div>
 						</div><!--principal-->		
 					</div><!--container-->	

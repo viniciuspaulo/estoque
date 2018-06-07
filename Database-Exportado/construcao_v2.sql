@@ -219,3 +219,7 @@ commit
 
 ALTER TABLE produtos ADD compra varchar(255);
 ALTER TABLE venda ADD pagamento int;
+
+-- DATA 06/06/2018
+use tcc2
+ALTER TABLE produtos ADD fornecedor varchar(255);

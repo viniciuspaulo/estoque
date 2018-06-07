@@ -9,10 +9,11 @@ $quantidade = $_POST["quantidade"];
 $descricao = $_POST["descricao"];
 $categoria_id = $_POST['categoria_id'];
 $usado = isset($_POST['usado']) ? 1 : 0;
+$fornecedor = $_POST['fornecedor'];
 
 
-$sql = mysqli_query($conexao, "INSERT INTO produtos(nome, preco, descricao, categoria_id, usado, quantidade, compra) 
-VALUES('$nome','$preco', '$descricao', '$categoria_id', $usado, '$quantidade', '$compra')");
+$sql = mysqli_query($conexao, "INSERT INTO produtos(nome, preco, descricao, categoria_id, usado, quantidade, compra, fornecedor) 
+VALUES('$nome','$preco', '$descricao', '$categoria_id', $usado, '$quantidade', '$compra', '$fornecedor')");
 
 
 if($sql){
