@@ -9,6 +9,7 @@ $descricao = $_POST["descricao"];
 $categoria_id = $_POST["categoria_id"];
 $usado = $_POST["usado"];
 $id = $_POST["id"];
+$fornecedor = $_POST["fornecedor"];
 
 
 if($usado != NULL){
@@ -24,6 +25,7 @@ quantidade = '$quantidade',
 descricao = '$descricao',
 usado = '$usado',
 compra = '$compra',
+fornecedor = '$fornecedor',
 categoria_id = '$categoria_id' 
 where id = '$id' ");
 
