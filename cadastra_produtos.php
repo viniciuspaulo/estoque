@@ -47,7 +47,7 @@
 											<table class="table" id="cad_tabla_prod">
 												<tr>
 													<td>Nome:</td>
-													<td><input type="text" name="nome" id="nome" class="txt" /></td>
+													<td><input type="text" class="form-control" name="nome" id="nome" class="txt" /></td>
 												</tr>
 												<tr>
 													<td>Valor da compra:</td>
@@ -59,7 +59,7 @@
 												</tr>
 												<tr>
 													<td>Descrição:</td>
-													<td><textarea name="descricao" id="descricao" class="txt"></textarea></td>
+													<td><textarea class="form-control" name="descricao" id="descricao" class="txt"></textarea></td>
 												</tr>
 
 												<tr>
