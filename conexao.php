@@ -18,7 +18,7 @@
 			$_SESSION['perfil'] = $usuario['perfil'] ;
 			$_SESSION['matricula'] = $usuario['matricula'] ;
 
-			header("Location: vendas_lista.php");
+			header("Location: home.php");
 		}else{
 			header("Location: index.php?login=false");
 		}
