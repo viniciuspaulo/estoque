@@ -1,4 +1,5 @@
 <ul id="sidebar-nav">
+    <li><a href="home.php">Inicio</a></li>
     <?php if ($_SESSION['perfil'] == '2') { ?>
     <li><a href="funcionario_lista.php">Funcionario</a></li>
     <?php }?>
