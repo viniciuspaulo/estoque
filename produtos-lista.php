@@ -47,7 +47,6 @@
 										<th>Quantidade</th>
 										<th>Compra</th>
 							            <th>Venda</th>
-										<th>Categoria</th>
 										<th>Fornecedor</th>
 							            <th>Alterar</th>
 							            <th>Apagar</th>
@@ -65,7 +64,6 @@
 										<td><?= $produto['quantidade'] ?></td>
 										<td><?= $produto['compra'] ?></td>
 										<td><?= $produto['preco'] ?></td>
-										<td><?= $produto['categoria_nome']?></td>
 										<td><?= $produto['fornecedor']?></td>
 										<td><a class="btn btn-primary"  href="produto-altera.php?id=<?=$produto['id']?>">alterar</a></td>
 
