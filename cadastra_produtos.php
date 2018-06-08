@@ -4,6 +4,11 @@
 	<link rel="stylesheet" type="text/css" href="css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+	<style>
+		.form-control{
+			max-width:250px;
+		}
+	</style>
 	<?php include 'script.php' ?>
 </head>
 <body>
