@@ -87,7 +87,7 @@
 												<tr>
 													<td>Fornecedor:</td>
 													<td>
-														<select name="fornecedor">
+														<select class="form-control" name="fornecedor">
 															<?php foreach ($fornecedores as $fornecedor) : ?>
 																<option value="<?= $fornecedor ?> ">
 																	<?= $fornecedor ?>
