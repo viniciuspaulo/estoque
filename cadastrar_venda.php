@@ -146,6 +146,7 @@
                                                     <option value="2" <?= isset($venda['pagamento']) && $venda['pagamento'] == '2' ? 'selected' : '' ?>>Cartão de débito</option>
                                                     <option value="3" <?= isset($venda['pagamento']) && $venda['pagamento'] == '3' ? 'selected' : '' ?>>Boleto</option>
                                                     <option value="4" <?= isset($venda['pagamento']) && $venda['pagamento'] == '4' ? 'selected' : '' ?>>Cheque</option>
+                                                    <option value="5" <?= isset($venda['pagamento']) && $venda['pagamento'] == '5' ? 'selected' : '' ?>>Dinheiro</option>
                                                 </select>
                                             </td>
                                         </tr>
@@ -159,6 +160,9 @@
 												<a href="./vendas_lista.php">
 													<input type="button" value="Cancelar" class="btn btn-danger" id="btnCancelar">
 												</a>
+                                                <?php if(!isset($venda['id']) ) { ?>
+                                                    <a  id="imprimir" onclick="imprimir()" class="btn btn-primary">Imprimir</a>
+                                                <?php };?>
 											</td>
 										</tr>	
 									</table>
@@ -403,6 +407,15 @@
 
             $("#valor").val(total);
             $("#quantidade").val(quantidade);
+        }
+
+
+        function imprimir(){
+            var conteudo = document.getElementById('container').innerHTML;
+            tela_impressao = window.open('about:blank');
+            tela_impressao.document.write(conteudo);
+            tela_impressao.window.print();
+            tela_impressao.window.close();
         }
 	
 	</script>
