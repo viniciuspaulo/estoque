@@ -160,7 +160,7 @@
 												<a href="./vendas_lista.php">
 													<input type="button" value="Cancelar" class="btn btn-danger" id="btnCancelar">
 												</a>
-                                                <?php if(!isset($venda['id']) ) { ?>
+                                                <?php if(isset($venda['id']) ) { ?>
                                                     <a  id="imprimir" onclick="imprimir()" class="btn btn-primary">Imprimir</a>
                                                 <?php };?>
 											</td>
