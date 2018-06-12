@@ -45,7 +45,7 @@
 								<form>
 									
 									<?php if(isset($fornecedor['id']) ) { ?>
-										<input type="hidden" name="id" value="<?= $fornecedor['id'] ?>">
+										<input type="hidden" name="id" id="fornecedor_id" value="<?= $fornecedor['id'] ?>">
 									<?php }?>
 
 									<table class="table">
@@ -54,7 +54,7 @@
 											 <td><input class="form-control" type="text" name="nome" value="<?= isset($fornecedor['nome']) ? $fornecedor['nome'] : '' ?>"></td>
 
 											<td>CNPJ/CPF:</td>
-											<td><input class="form-control mask-cnpj-cpf" type="text" name="cnpj" value="<?= isset($fornecedor['cnpj']) ? $fornecedor['cnpj'] : '' ?>"></td>
+											<td><input class="form-control mask-cnpj-cpf" type="text" id="cnpj" name="cnpj" value="<?= isset($fornecedor['cnpj']) ? $fornecedor['cnpj'] : '' ?>"></td>
 										</tr>
 										<tr>
 											<td>Complemento:</td>
@@ -131,6 +131,40 @@
 					error : (e) =>{
 						console.log(e);
 						alert("Problemas de conexao");
+					}
+				});
+			});
+			
+			let botao = 'btnCad';
+			
+			if(!!$("#fornecedor_id").val()){
+				$(`#${botao}`).hide();
+			}
+
+			$('#cnpj').keyup((e)=>{
+				let texto = $('#cnpj').val();
+				let campo = 'cnpj';
+				let tabela = 'fornecedor';
+
+				$.ajax({
+					type: 'post',
+					url: 'validacao.php',
+					dataType: 'json',
+					data: {
+						texto : texto,
+						campo : campo,
+						tabela : tabela
+					},
+					success: (resultado) => {
+						if(resultado){
+							$(`#${botao}`).hide();
+							alert(`Esse cnpj já está sendo utilizado !!`);
+						}else{
+							$(`#${botao}`).show();
+						}
+					},
+					error : (e) =>{
+						console.log(e);
 					}
 				});
 			});

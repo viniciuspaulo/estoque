@@ -103,5 +103,42 @@
 			</div><!--box-->
 		</div><!--content-->
 	</div><!--container-->
+	<script>
+	$(function () {
+			let botao = 'btnCad';
+			
+			if(!$("#cliente_id").val()){
+				$(`#${botao}`).hide();
+			}
+			
+			$('#cnpj').keyup((e)=>{
+				let texto = $('#cnpj').val();
+				let campo = 'cnpj';
+				let tabela = 'clientes';
+
+				$.ajax({
+					type: 'post',
+					url: 'validacao.php',
+					dataType: 'json',
+					data: {
+						texto : texto,
+						campo : campo,
+						tabela : tabela
+					},
+					success: (resultado) => {
+						if(resultado){
+							$(`#${botao}`).hide();
+							alert(`Esse cnpj já está sendo utilizado !!`);
+						}else{
+							$(`#${botao}`).show();
+						}
+					},
+					error : (e) =>{
+						console.log(e);
+					}
+				});
+			});
+		});		
+	</script>
 </body>
 </html>

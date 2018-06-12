@@ -171,9 +171,46 @@
 		
 	</div><!--container-->
 	<script>
-		$("#relatorio").click(()=>{
-			$("#tabela-relatorio").toggle();
-		});
+	
+		$(function () {
+			
+			$("#relatorio").click(()=>{
+				$("#tabela-relatorio").toggle();
+			});
+
+			let botao = 'btnCad';
+			if(!$("#funcionario_id").val()){
+				$(`#${botao}`).hide();
+			}
+
+			$('#cpf').keyup((e)=>{
+				let texto = $('#cpf').val();
+				let campo = 'cpf';
+				let tabela = 'funcionario';
+
+				$.ajax({
+					type: 'post',
+					url: 'validacao.php',
+					dataType: 'json',
+					data: {
+						texto : texto,
+						campo : campo,
+						tabela : tabela
+					},
+					success: (resultado) => {
+						if(resultado){
+							$(`#${botao}`).hide();
+							alert(`Esse cpf já está sendo utilizado !!`);
+						}else{
+							$(`#${botao}`).show();
+						}
+					},
+					error : (e) =>{
+						console.log(e);
+					}
+				});
+			});
+		});			
 	</script>
 </body>
 </html>

@@ -121,5 +121,38 @@
 			</div><!--box-->
 		</div><!--content-->
 	</div><!--container-->
+	<script>
+		$(function () {
+			let botao = 'btnCad';
+			$(`#${botao}`).hide();
+			$('#nome').keyup((e)=>{
+				let texto = $('#nome').val();
+				let campo = 'nome';
+				let tabela = 'produtos';
+
+				$.ajax({
+					type: 'post',
+					url: 'validacao.php',
+					dataType: 'json',
+					data: {
+						texto : texto,
+						campo : campo,
+						tabela : tabela
+					},
+					success: (resultado) => {
+						if(resultado){
+							$(`#${botao}`).hide();
+							alert('Esse produtos já existe !!');
+						}else{
+							$(`#${botao}`).show();
+						}
+					},
+					error : (e) =>{
+						console.log(e);
+					}
+				});
+			});
+		});			
+	</script>
 </body>
 </html>
