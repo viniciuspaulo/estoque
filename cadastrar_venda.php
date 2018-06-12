@@ -84,7 +84,7 @@
 				<div class="box-top"></div><!--box-top-->
 				<div class="box-painel">
 					<div class="container"><!--centralizar-->
-						<div class="principal"> 
+						<div id="principal" class="principal"> 
 							<h1>Produtos Vendidos</h1>
 								<form>
 									<table class="table">
@@ -411,7 +411,7 @@
 
 
         function imprimir(){
-            var conteudo = document.getElementById('container').innerHTML;
+            var conteudo = document.getElementById('principal').innerHTML;
             tela_impressao = window.open('about:blank');
             tela_impressao.document.write(conteudo);
             tela_impressao.window.print();
