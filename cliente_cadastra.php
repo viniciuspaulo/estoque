@@ -107,7 +107,7 @@
 	$(function () {
 			let botao = 'btnCad';
 			
-			if(!$("#cliente_id").val()){
+			if(!!$("#cliente_id").val()){
 				$(`#${botao}`).hide();
 			}
 			

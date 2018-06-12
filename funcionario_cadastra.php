@@ -179,7 +179,7 @@
 			});
 
 			let botao = 'btnCad';
-			if(!$("#funcionario_id").val()){
+			if(!!$("#funcionario_id").val()){
 				$(`#${botao}`).hide();
 			}
 
