@@ -412,10 +412,15 @@
 
         function imprimir(){
             var conteudo = document.getElementById('principal').innerHTML;
-            tela_impressao = window.open('about:blank');
-            tela_impressao.document.write(conteudo);
-            tela_impressao.window.print();
-            tela_impressao.window.close();
+            
+            var mywindow = window.open( "", "new div", "height=400,width=600" );
+            mywindow.document.write( "<html><head><title></title>" );
+            mywindow.document.write( "<link rel=\"stylesheet\" href=\"css/home.css\" type=\"text/css\"/>" );
+            mywindow.document.write( "</head><body >" );
+            mywindow.document.write( conteudo );
+            mywindow.document.write( "</body></html>" );
+
+            mywindow.print();
         }
 	
 	</script>
