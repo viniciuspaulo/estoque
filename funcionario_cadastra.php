@@ -11,6 +11,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<?php include 'script.php' ?>
 
+	<script>
+	let botao = 'btnCad';
+	</script>
+
+	<?php if(isset($_GET['id'])){?>
+	<script>
+		if(!!$("#funcionario_id").val()){
+			$(`#${botao}`).hide();
+		}
+	</script>
+	<?php } ?>
+
 </head>
 <body>
 	<div id="header">
@@ -181,11 +193,6 @@
 			$("#relatorio").click(()=>{
 				$("#tabela-relatorio").toggle();
 			});
-
-			let botao = 'btnCad';
-			if(!!$("#funcionario_id").val()){
-				$(`#${botao}`).hide();
-			}
 
 			$('#cpf').keyup((e)=>{
 				let texto = $('#cpf').val();
