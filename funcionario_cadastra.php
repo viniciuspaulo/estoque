@@ -17,7 +17,7 @@
 
 	<?php if(isset($_GET['id'])){?>
 	<script>
-		if(!!$("#funcionario_id").val()){
+		if(!$("#funcionario_id").val()){
 			$(`#${botao}`).hide();
 		}
 	</script>
