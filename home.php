@@ -32,6 +32,8 @@
 			<p>Sistema de Gestão de Material de Construção</p>
             <br><br>
             <h1>Seja bem vindo</h1>
+			<br>
+			<img src="img/consto_bg" class="logo-home">
 			
 		</div><!--content-->
 	</div><!--container-->
