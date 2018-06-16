@@ -190,9 +190,3 @@ fieldset[disabled] .btn-danger.active {
   border-color: #d43f3a;
 }
 .btn{border-top-color: #000 !important;}
-
-.logo-home{
-  width: 300px !important;
-  height: 200px;
-  border-radius: 10px;
-}
